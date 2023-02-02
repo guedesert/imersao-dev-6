@@ -27,7 +27,34 @@
           <li class="sobre">Sobre</li>
         </ul>
       </nav>
-      <div class="area">area</div>
+      <div class="area">
+        <form>
+          <h4>Área</h4>
+          <input type="number" id="viarea" value="1" />
+          <select id="uiarea">
+            <option value="mm2">Milímetro quadrado (mm²)</option>
+            <option value="cm2">Centímetro quadrado (cm²)</option>
+            <option value="dm2">Decímetro quadrado (dm²)</option>
+            <option value="m2" selected>Metro quadrado (m²)</option>
+            <option value="a">Are (a)</option>
+            <option value="ha">Hectare (ha)</option>
+            <option value="km2">Quilômetro quadrado (km²)</option>
+          </select>
+          <div class="alteraunidade">
+            <img src="./assets/convericon.svg" alt="" />
+          </div>
+          <select id="ufarea">
+            <option value="mm2">Milímetro quadrado (mm²)</option>
+            <option value="cm2">Centímetro quadrado (cm²)</option>
+            <option value="dm2">Decímetro quadrado (dm²)</option>
+            <option value="m2">Metro quadrado (m²)</option>
+            <option value="a">Are (a)</option>
+            <option value="ha">Hectare (ha)</option>
+            <option value="km2" selected>Quilômetro quadrado (km²)</option>
+          </select>
+          <label id="vfarea"></label>
+        </form>
+      </div>
       <div class="comprimento">comprimento</div>
       <div class="massa">massa</div>
       <div class="moeda">moeda</div>
