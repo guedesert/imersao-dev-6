@@ -1,9 +1,37 @@
 var formarea = document.querySelector(".area")
 var formau = document.querySelector(".alteraunidade")
+var bannerusuario = document.getElementById("usuario")
+var usuario =
+  JSON.parse(localStorage.getItem("imersaodev@guedesert")) || "Viajante"
+bannerusuario.innerHTML = "Bem-vindo, " + usuario + "!"
+var tela = window.matchMedia("(max-width: 815px)")
+ajustamenu(tela)
+tela.addEventListener("change", ajustamenu)
+window.onload = carregadados
 
-formarea.addEventListener("input", calculaarea)
+formarea.addEventListener("change", calculaarea)
 formau.addEventListener("click", trocaunidade)
 
+function carregadados() {
+  calculaarea()
+}
+
+function defineusuario() {
+  if (usuario == "Viajante") {
+    usuario = prompt("Qual o seu nome?")
+    if (usuario == "" || usuario == null) {
+      usuario = "Viajante"
+    }
+  } else {
+    usuario = prompt("Qual o seu novo nome?")
+    if (usuario == "" || usuario == null) {
+      usuario = "Viajante"
+    }
+  }
+
+  localStorage.setItem("imersaodev@guedesert", JSON.stringify(usuario))
+  bannerusuario.innerHTML = "Bem-vindo, " + usuario + "!"
+}
 function calculaarea() {
   var viarea = document.getElementById("viarea").value
   var uiarea = document.getElementById("uiarea").value
@@ -30,20 +58,18 @@ function calculaarea() {
     }
     if (ufarea != "m2") {
       if (ufarea == "mm2") {
-        resultado = resultado * 1000 + " mm²"
+        resultado *= 1000
       } else if (ufarea == "cm2") {
-        resultado = resultado * 100 + " cm²"
+        resultado *= 100
       } else if (ufarea == "dm2") {
-        resultado = resultado * 10 + " dm²"
+        resultado *= 10
       } else if (ufarea == "a") {
-        resultado = resultado / 10 + " a"
+        resultado /= 10
       } else if (ufarea == "ha") {
-        resultado = resultado / 100 + " ha"
+        resultado /= 100
       } else if (ufarea == "km2") {
-        resultado = resultado / 100 + " km²"
+        resultado /= 1000
       }
-    } else {
-      resultado += " m²"
     }
     vfarea.innerHTML = resultado
   } else {
@@ -58,5 +84,22 @@ function trocaunidade() {
     document.getElementById("uiarea").value = ufarea
     document.getElementById("ufarea").value = uiarea
     calculaarea()
+  }
+}
+
+function exibemenu() {
+  var div = document.getElementById("menuextendido").style.display
+  if (div == "none") {
+    document.getElementById("menuextendido").style.display = "flex"
+  } else {
+    document.getElementById("menuextendido").style.display = "none"
+  }
+}
+
+function ajustamenu(tela) {
+  if (tela.matches) {
+    document.getElementById("menuextendido").style.display = "none"
+  } else {
+    document.getElementById("menuextendido").style.display = "flex"
   }
 }

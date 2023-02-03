@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,23 +19,29 @@
       <a href="./index.html"
         ><img src="./assets/logo.svg" alt="Logo do Conversor Intergalático"
       /></a>
+      <div id="usuario" onclick="defineusuario()"></div>
     </header>
-    <div id="conteiner">
-      <nav>
-        <ul id="menu">
-          <li value="area">Área</li>
-          <li value="comprimento">Comprimento</li>
-          <li value="massa">Massa</li>
-          <li value="moeda">Moeda</li>
-          <li value="temperatura">Temperatura</li>
-          <li value="velocidade">Velocidade</li>
-          <li value="volume">Volume</li>
+    <nav>
+      <ul id="menu">
+        <li id="menurecolhido" onclick="exibemenu()">
+          <img src="./assets/menu.svg" alt="" height="12px" /> Menu
+        </li>
+        <div id="menuextendido">
+          <li>Área</li>
+          <li>Comprimento</li>
+          <li>Massa</li>
+          <li>Moeda</li>
+          <li>Temperatura</li>
+          <li>Velocidade</li>
+          <li>Volume</li>
           <li class="sobre">Sobre</li>
-        </ul>
-      </nav>
+        </div>
+      </ul>
+    </nav>
+    <div id="conteiner">
       <div class="area">
+        <h4>Área</h4>
         <form>
-          <h4>Área</h4>
           <input type="number" id="viarea" value="1" />
           <select id="uiarea">
             <option value="mm2">Milímetro quadrado (mm²)</option>
@@ -55,7 +67,7 @@
           <label id="vfarea"></label>
         </form>
       </div>
-      <div class="comprimento">comprimento</div>
+      <div class="comprimento" hidden>comprimento</div>
       <div class="massa">massa</div>
       <div class="moeda">moeda</div>
       <div class="velocidade">velocidade</div>
@@ -63,7 +75,6 @@
       <div class="temperatura">temperatura</div>
       <div class="sobre">sobre</div>
     </div>
-
     <footer>
       <div>
         &copy; 2023. Desenvolvido por <a href="">Emanuel Guedes</a
