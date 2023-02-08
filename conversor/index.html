@@ -69,12 +69,85 @@
       </div>
       <div id="comprimento">
         <h4>Comprimento</h4>
+        <form>
+          <input type="number" id="vicomprimento" value="1" />
+          <select id="uicomprimento">
+            <option value="mm">Milímetro (mm)</option>
+            <option value="cm" selected>Centímetro (cm)</option>
+            <option value="dm">Decímetro (dm)</option>
+            <option value="m">Metro (m)</option>
+            <option value="dam">Decâmetro (m)</option>
+            <option value="hm">Hectômetro (m)</option>
+            <option value="km">Quilômetro (km)</option>
+          </select>
+          <div class="alteraunidade" onclick="trocaunidade(2)">
+            <img src="./assets/convericon.svg" alt="" />
+          </div>
+          <select id="ufcomprimento">
+            <option value="mm">Milímetro (mm)</option>
+            <option value="cm">Centímetro (cm)</option>
+            <option value="dm">Decímetro (dm)</option>
+            <option value="m" selected>Metro (m)</option>
+            <option value="dam">Decâmetro (m)</option>
+            <option value="hm">Hectômetro (m)</option>
+            <option value="km">Quilômetro (km)</option>
+          </select>
+          <label id="vfcomprimento"></label>
+        </form>
       </div>
       <div id="massa">
         <h4>Massa</h4>
+        <form>
+          <input type="number" id="vimassa" value="1" />
+          <select id="uimassa">
+            <option value="mg">Miligrama (mg)</option>
+            <option value="cg">Centigrama (cg)</option>
+            <option value="dg">Decigrama (dg)</option>
+            <option value="g" selected>Grama (g)</option>
+            <option value="dag">Decagrama (dag)</option>
+            <option value="hg">Hectograma (hg)</option>
+            <option value="kg">Quilograma (kg)</option>
+            <option value="t">Tonelada (t)</option>
+          </select>
+          <div class="alteraunidade" onclick="trocaunidade(3)">
+            <img src="./assets/convericon.svg" alt="" />
+          </div>
+          <select id="ufmassa">
+            <option value="mg">Miligrama (mg)</option>
+            <option value="cg">Centigrama (cg)</option>
+            <option value="dg">Decigrama (dg)</option>
+            <option value="g">Grama (g)</option>
+            <option value="dag">Decagrama (dag)</option>
+            <option value="hg">Hectograma (hg)</option>
+            <option value="kg" selected>Quilograma (kg)</option>
+            <option value="t">Tonelada (t)</option>
+          </select>
+          <label id="vfmassa"></label>
+        </form>
       </div>
       <div id="moeda">
         <h4>Moeda</h4>
+        <form>
+          <input type="number" id="vimoeda" value="1.00" />
+          <select id="uimoeda">
+            <option value="USD" selected>Dólar estadunidense (US$)</option>
+            <option value="EUR">Euro (€)</option>
+            <option value="JPY">Iene (¥)</option>
+            <option value="GBP">Libra esterlina (£)</option>
+            <option value="BRL">Real brasileiro (R$)</option>
+          </select>
+          <div class="alteraunidade" onclick="trocaunidade(4)">
+            <img src="./assets/convericon.svg" alt="" />
+          </div>
+          <select id="ufmoeda">
+            <option value="USD">Dólar estadunidense (US$)</option>
+            <option value="EUR">Euro (€)</option>
+            <option value="JPY">Iene (¥)</option>
+            <option value="GBP">Libra esterlina (£)</option>
+            <option value="BRL" selected>Real brasileiro (R$)</option>
+          </select>
+          <label id="vfmoeda"></label>
+        </form>
       </div>
       <div id="temperatura">
         <h4>Temperatura</h4>
@@ -98,9 +171,61 @@
       </div>
       <div id="velocidade">
         <h4>Velocidade</h4>
+        <form>
+          <input type="number" id="vivelocidade" value="1" />
+          <select id="uivelocidade">
+            <option value="kmh" selected>Quilômetros por hora (km/h)</option>
+            <option value="ms">Metros por segundo (m/s)</option>
+          </select>
+          <div class="alteraunidade" onclick="trocaunidade(6)">
+            <img src="./assets/convericon.svg" alt="" />
+          </div>
+          <select id="ufvelocidade">
+            <option value="kmh">Quilômetros por hora (km/h)</option>
+            <option value="ms" selected>Metros por segundo (m/s)</option>
+          </select>
+          <label id="vfvelocidade"></label>
+        </form>
       </div>
       <div id="volume">
         <h4>Volume</h4>
+        <form>
+          <input type="number" id="vivolume" value="1" />
+          <select id="uivolume">
+            <option value="ml">Mililitro (ml)</option>
+            <option value="cl">Centilitro (cl)</option>
+            <option value="dl">Decilitro (dl)</option>
+            <option value="l">Litro (L)</option>
+            <option value="dal">Decalitro (dal)</option>
+            <option value="hl">Hectolitro (hl)</option>
+            <option value="mm3">Milímetro cúbico (mm³)</option>
+            <option value="cm3">Centímetro cúbico (cm³)</option>
+            <option value="dm3">Decímetro cúbico (dm³)</option>
+            <option value="m3" selected>Metro cúbico (m³)</option>
+            <option value="dam3">Decâmetro cúbico (m³)</option>
+            <option value="hm3">Hectômetro cúbico (m³)</option>
+            <option value="km3">Quilômetro cúbico (km³)</option>
+          </select>
+          <div class="alteraunidade" onclick="trocaunidade(7)">
+            <img src="./assets/convericon.svg" alt="" />
+          </div>
+          <select id="ufvolume">
+            <option value="ml">Mililitro (ml)</option>
+            <option value="cl">Centilitro (cl)</option>
+            <option value="dl">Decilitro (dl)</option>
+            <option value="l" selected>Litro (L)</option>
+            <option value="dal">Decalitro (dal)</option>
+            <option value="hl">Hectolitro (hl)</option>
+            <option value="mm3">Milímetro cúbico (mm³)</option>
+            <option value="cm3">Centímetro cúbico (cm³)</option>
+            <option value="dm3">Decímetro cúbico (dm³)</option>
+            <option value="m3">Metro cúbico (m³)</option>
+            <option value="dam3">Decâmetro cúbico (m³)</option>
+            <option value="hm3">Hectômetro cúbico (m³)</option>
+            <option value="km3">Quilômetro cúbico (km³)</option>
+          </select>
+          <label id="vfvolume"></label>
+        </form>
       </div>
       <div id="sobre">
         <h4>Sobre</h4>

@@ -7,7 +7,7 @@
 body {
   background-color: #09090a;
   font-family: Iceberg;
-  font-size: large;
+  font-size: larger;
   color: #ffffff;
   height: 100vh;
 }
@@ -63,7 +63,7 @@ nav {
   -webkit-background-clip: text;
   background-clip: text;
   font-weight: bolder;
-  font-size: medium;
+  font-size: large;
 }
 
 #area,
@@ -93,7 +93,8 @@ form {
 form input,
 select,
 label {
-  width: 20%;
+  font-size: medium;
+  width: 35%;
   margin: 2px;
   border: none;
   outline: inherit;
@@ -140,6 +141,9 @@ a:hover {
   }
 }
 @media (max-width: 815px) {
+  body {
+    font-size: unset;
+  }
   header {
     flex-direction: column;
   }
@@ -179,7 +183,7 @@ a:hover {
   form input,
   select,
   label {
-    width: 35%;
+    width: 50%;
     font-size: small;
   }
 

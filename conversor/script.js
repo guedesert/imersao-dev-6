@@ -1,4 +1,10 @@
 var formarea = document.querySelector("#area")
+var formcomprimento = document.querySelector("#comprimento")
+var formmassa = document.querySelector("#massa")
+var formmoeda = document.querySelector("#moeda")
+var formtemperatura = document.querySelector("#temperatura")
+var formvelocidade = document.querySelector("#velocidade")
+var formvolume = document.querySelector("#volume")
 var bannerusuario = document.getElementById("usuario")
 var usuario =
   JSON.parse(localStorage.getItem("imersaodev@guedesert")) || "Viajante"
@@ -8,17 +14,26 @@ ajustamenu(tela)
 tela.addEventListener("change", ajustamenu)
 window.onload = carregadados
 
-formarea.addEventListener("input", calculaarea)
+formarea.addEventListener("change", calculaarea)
+formcomprimento.addEventListener("change", calculacomprimento)
+formmassa.addEventListener("change", calculamassa)
+formmoeda.addEventListener("change", calculamoeda)
+formtemperatura.addEventListener("change", calculatemperatura)
+formvelocidade.addEventListener("change", calculavelocidade)
+formvolume.addEventListener("change", calculavolume)
 
 function carregadados() {
   calculaarea()
+  calculacomprimento()
+  calculamassa()
+  calculatemperatura()
   definediv(1)
 }
 
 function defineusuario() {
   if (usuario == "Viajante") {
     usuario = prompt("Qual o seu nome?")
-    if (usuario == "" || usuario == null) {
+    if (usuario == "" || usuario == " " || usuario == null) {
       usuario = "Viajante"
     }
   } else {
@@ -117,11 +132,26 @@ function definediv(div) {
 
 function trocaunidade(grandeza) {
   if (grandeza == 1) {
-    uiID = "uiarea"
-    ufID = "ufarea"
+    var uiID = "uiarea"
+    var ufID = "ufarea"
+  } else if (grandeza == 2) {
+    var uiID = "uicomprimento"
+    var ufID = "ufcomprimento"
+  } else if (grandeza == 3) {
+    var uiID = "uimassa"
+    var ufID = "ufmassa"
+  } else if (grandeza == 4) {
+    var uiID = "uimoeda"
+    var ufID = "ufmoeda"
   } else if (grandeza == 5) {
-    uiID = "uitemperatura"
-    ufID = "uftemperatura"
+    var uiID = "uitemperatura"
+    var ufID = "uftemperatura"
+  } else if (grandeza == 6) {
+    var uiID = "uivelocidade"
+    var ufID = "ufvelocidade"
+  } else if (grandeza == 7) {
+    var uiID = "uivolume"
+    var ufID = "ufvolume"
   }
   var ui = document.getElementById(uiID).value
   var uf = document.getElementById(ufID).value
@@ -130,8 +160,18 @@ function trocaunidade(grandeza) {
     document.getElementById(ufID).value = ui
     if (grandeza == 1) {
       calculaarea()
+    } else if (grandeza == 2) {
+      calculacomprimento()
+    } else if (grandeza == 3) {
+      calculamassa()
+    } else if (grandeza == 4) {
+      calculamoeda()
     } else if (grandeza == 5) {
       calculatemperatura()
+    } else if (grandeza == 6) {
+      calculavelocidade()
+    } else if (grandeza == 7) {
+      calculavolume()
     }
   }
 }
@@ -177,8 +217,143 @@ function calculaarea() {
     }
     vfarea.innerHTML = resultado.toLocaleString("pt-BR")
   } else {
-    vfarea.innerHTML = ""
+    vfarea.innerHTML = "0"
   }
+}
+
+function calculacomprimento() {
+  var vicomprimento = document.getElementById("vicomprimento").value
+  var uicomprimento = document.getElementById("uicomprimento").value
+  var ufcomprimento = document.getElementById("ufcomprimento").value
+  var vfcomprimento = document.getElementById("vfcomprimento")
+  if (vicomprimento != "") {
+    vicomprimento = parseFloat(vicomprimento)
+    if (uicomprimento != "m") {
+      if (uicomprimento == "mm") {
+        var resultado = vicomprimento / 1000
+      } else if (uicomprimento == "cm") {
+        var resultado = vicomprimento / 100
+      } else if (uicomprimento == "dm") {
+        var resultado = vicomprimento / 10
+      } else if (uicomprimento == "dam") {
+        var resultado = vicomprimento * 10
+      } else if (uicomprimento == "hm") {
+        var resultado = vicomprimento * 100
+      } else if (uicomprimento == "km") {
+        var resultado = vicomprimento * 1000
+      }
+    } else {
+      var resultado = vicomprimento
+    }
+    if (ufcomprimento != "m") {
+      if (ufcomprimento == "mm") {
+        resultado *= 1000
+      } else if (ufcomprimento == "cm") {
+        resultado *= 100
+      } else if (ufcomprimento == "dm") {
+        resultado *= 10
+      } else if (ufcomprimento == "dam") {
+        resultado /= 10
+      } else if (ufcomprimento == "hm") {
+        resultado /= 100
+      } else if (ufcomprimento == "km") {
+        resultado /= 1000
+      }
+    }
+    vfcomprimento.innerHTML = resultado.toLocaleString("pt-BR")
+  } else {
+    vfcomprimento.innerHTML = "0"
+  }
+}
+
+function calculamassa() {
+  var vimassa = document.getElementById("vimassa").value
+  var uimassa = document.getElementById("uimassa").value
+  var ufmassa = document.getElementById("ufmassa").value
+  var vfmassa = document.getElementById("vfmassa")
+  if (vimassa != "") {
+    vimassa = parseFloat(vimassa)
+    if (uimassa != "g") {
+      if (uimassa == "mg") {
+        var resultado = vimassa / 1000
+      } else if (uimassa == "cg") {
+        var resultado = vimassa / 100
+      } else if (uimassa == "dg") {
+        var resultado = vimassa / 10
+      } else if (uimassa == "dag") {
+        var resultado = vimassa * 10
+      } else if (uimassa == "hg") {
+        var resultado = vimassa * 100
+      } else if (uimassa == "kg") {
+        var resultado = vimassa * 1000
+      } else if (uimassa == "t") {
+        var resultado = vimassa * 1000000
+      }
+    } else {
+      var resultado = vimassa
+    }
+    if (ufmassa != "g") {
+      if (ufmassa == "mg") {
+        resultado *= 1000
+      } else if (ufmassa == "cg") {
+        resultado *= 100
+      } else if (ufmassa == "dg") {
+        resultado *= 10
+      } else if (ufmassa == "dag") {
+        resultado /= 10
+      } else if (ufmassa == "hg") {
+        resultado /= 100
+      } else if (ufmassa == "kg") {
+        resultado /= 1000
+      } else if (ufmassa == "t") {
+        resultado /= 1000000
+      }
+    }
+    vfmassa.innerHTML = resultado.toLocaleString("pt-BR")
+  } else {
+    vfmassa.innerHTML = "0"
+  }
+}
+
+function calculamoeda() {
+  alert("Não configurado")
+}
+
+function calculatemperatura() {
+  var vitemperatura = document.getElementById("vitemperatura").value
+  var uitemperatura = document.getElementById("uitemperatura").value
+  var uftemperatura = document.getElementById("uftemperatura").value
+  var vftemperatura = document.getElementById("vftemperatura")
+  if (vitemperatura != "") {
+    vitemperatura = parseFloat(vitemperatura)
+    if (uitemperatura != "c") {
+      if (uitemperatura == "f") {
+        var resultado = ((vitemperatura - 32) * 5) / 9
+      } else if (uitemperatura == "k") {
+        var resultado = vitemperatura - 273.15
+      }
+    } else {
+      var resultado = vitemperatura
+    }
+    if (uftemperatura != "c") {
+      if (uftemperatura == "f") {
+        resultado = (resultado * 9) / 5 + 32
+      } else if (uftemperatura == "k") {
+        resultado += 273.15
+      }
+    }
+    vftemperatura.innerHTML = resultado.toLocaleString("pt-BR")
+  } else {
+    vftemperatura.innerHTML = "0"
+  }
+}
+
+function calculavelocidade() {
+  alert("Não configurado")
+}
+
+function calculavolume() {
+  alert("Não configurado")
 }
 
 function exibemenu() {
@@ -197,5 +372,3 @@ function ajustamenu(tela) {
     document.getElementById("menuextendido").style.display = "flex"
   }
 }
-
-
