@@ -1,4 +1,4 @@
-var formarea = document.querySelector(".area")
+var formarea = document.querySelector("#area")
 var formau = document.querySelector(".alteraunidade")
 var bannerusuario = document.getElementById("usuario")
 var usuario =
@@ -9,11 +9,12 @@ ajustamenu(tela)
 tela.addEventListener("change", ajustamenu)
 window.onload = carregadados
 
-formarea.addEventListener("change", calculaarea)
+formarea.addEventListener("input", calculaarea)
 formau.addEventListener("click", trocaunidade)
 
 function carregadados() {
   calculaarea()
+  definediv(1)
 }
 
 function defineusuario() {
@@ -101,5 +102,89 @@ function ajustamenu(tela) {
     document.getElementById("menuextendido").style.display = "none"
   } else {
     document.getElementById("menuextendido").style.display = "flex"
+  }
+}
+
+function definediv(div) {
+  area = document.getElementById("area").style
+  comprimento = document.getElementById("comprimento").style
+  massa = document.getElementById("massa").style
+  moeda = document.getElementById("moeda").style
+  temperatura = document.getElementById("temperatura").style
+  velocidade = document.getElementById("velocidade").style
+  volume = document.getElementById("volume").style
+  sobre = document.getElementById("sobre").style
+  if (div == 1) {
+    area.display = "flex"
+    comprimento.display = "none"
+    massa.display = "none"
+    moeda.display = "none"
+    temperatura.display = "none"
+    velocidade.display = "none"
+    volume.display = "none"
+    sobre.display = "none"
+  } else if (div == 2) {
+    area.display = "none"
+    comprimento.display = "flex"
+    massa.display = "none"
+    moeda.display = "none"
+    temperatura.display = "none"
+    velocidade.display = "none"
+    volume.display = "none"
+    sobre.display = "none"
+  } else if (div == 3) {
+    area.display = "none"
+    comprimento.display = "none"
+    massa.display = "flex"
+    moeda.display = "none"
+    temperatura.display = "none"
+    velocidade.display = "none"
+    volume.display = "none"
+    sobre.display = "none"
+  } else if (div == 4) {
+    area.display = "none"
+    comprimento.display = "none"
+    massa.display = "none"
+    moeda.display = "flex"
+    temperatura.display = "none"
+    velocidade.display = "none"
+    volume.display = "none"
+    sobre.display = "none"
+  } else if (div == 5) {
+    area.display = "none"
+    comprimento.display = "none"
+    massa.display = "none"
+    moeda.display = "none"
+    temperatura.display = "flex"
+    velocidade.display = "none"
+    volume.display = "none"
+    sobre.display = "none"
+  } else if (div == 6) {
+    area.display = "none"
+    comprimento.display = "none"
+    massa.display = "none"
+    moeda.display = "none"
+    temperatura.display = "none"
+    velocidade.display = "flex"
+    volume.display = "none"
+    sobre.display = "none"
+  } else if (div == 7) {
+    area.display = "none"
+    comprimento.display = "none"
+    massa.display = "none"
+    moeda.display = "none"
+    temperatura.display = "none"
+    velocidade.display = "none"
+    volume.display = "flex"
+    sobre.display = "none"
+  } else if (div == 8) {
+    area.display = "none"
+    comprimento.display = "none"
+    massa.display = "none"
+    moeda.display = "none"
+    temperatura.display = "none"
+    velocidade.display = "none"
+    volume.display = "none"
+    sobre.display = "flex"
   }
 }

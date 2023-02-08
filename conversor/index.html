@@ -27,19 +27,19 @@
           <img src="./assets/menu.svg" alt="" height="12px" /> Menu
         </li>
         <div id="menuextendido">
-          <li>Área</li>
-          <li>Comprimento</li>
-          <li>Massa</li>
-          <li>Moeda</li>
-          <li>Temperatura</li>
-          <li>Velocidade</li>
-          <li>Volume</li>
-          <li class="sobre">Sobre</li>
+          <li onclick="definediv(1)">Área</li>
+          <li onclick="definediv(2)">Comprimento</li>
+          <li onclick="definediv(3)">Massa</li>
+          <li onclick="definediv(4)">Moeda</li>
+          <li onclick="definediv(5)">Temperatura</li>
+          <li onclick="definediv(6)">Velocidade</li>
+          <li onclick="definediv(7)">Volume</li>
+          <li class="sobre" onclick="definediv(8)">Sobre</li>
         </div>
       </ul>
     </nav>
     <div id="conteiner">
-      <div class="area">
+      <div id="area">
         <h4>Área</h4>
         <form>
           <input type="number" id="viarea" value="1" />
@@ -67,13 +67,13 @@
           <label id="vfarea"></label>
         </form>
       </div>
-      <div class="comprimento" hidden>comprimento</div>
-      <div class="massa">massa</div>
-      <div class="moeda">moeda</div>
-      <div class="velocidade">velocidade</div>
-      <div class="volume">volume</div>
-      <div class="temperatura">temperatura</div>
-      <div class="sobre">sobre</div>
+      <div id="comprimento" hidden>comprimento</div>
+      <div id="massa">massa</div>
+      <div id="moeda">moeda</div>
+      <div id="temperatura">temperatura</div>
+      <div id="velocidade">velocidade</div>
+      <div id="volume">volume</div>
+      <div id="sobre">sobre</div>
     </div>
     <footer>
       <div>
