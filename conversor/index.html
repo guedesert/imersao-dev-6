@@ -52,7 +52,7 @@
             <option value="ha">Hectare (ha)</option>
             <option value="km2">Quilômetro quadrado (km²)</option>
           </select>
-          <div class="alteraunidade">
+          <div class="alteraunidade" onclick="trocaunidade(1)">
             <img src="./assets/convericon.svg" alt="" />
           </div>
           <select id="ufarea">
@@ -67,13 +67,44 @@
           <label id="vfarea"></label>
         </form>
       </div>
-      <div id="comprimento" hidden>comprimento</div>
-      <div id="massa">massa</div>
-      <div id="moeda">moeda</div>
-      <div id="temperatura">temperatura</div>
-      <div id="velocidade">velocidade</div>
-      <div id="volume">volume</div>
-      <div id="sobre">sobre</div>
+      <div id="comprimento">
+        <h4>Comprimento</h4>
+      </div>
+      <div id="massa">
+        <h4>Massa</h4>
+      </div>
+      <div id="moeda">
+        <h4>Moeda</h4>
+      </div>
+      <div id="temperatura">
+        <h4>Temperatura</h4>
+        <form>
+          <input type="number" id="vitemperatura" value="0" />
+          <select id="uitemperatura">
+            <option value="c" selected>Celsius (°C)</option>
+            <option value="f">Fahrenheit (°F)</option>
+            <option value="k">Kelvin (°K)</option>
+          </select>
+          <div class="alteraunidade" onclick="trocaunidade(5)">
+            <img src="./assets/convericon.svg" alt="" />
+          </div>
+          <select id="uftemperatura">
+            <option value="c">Celsius (°C)</option>
+            <option value="f" selected>Fahrenheit (°F)</option>
+            <option value="k">Kelvin (°K)</option>
+          </select>
+          <label id="vftemperatura"></label>
+        </form>
+      </div>
+      <div id="velocidade">
+        <h4>Velocidade</h4>
+      </div>
+      <div id="volume">
+        <h4>Volume</h4>
+      </div>
+      <div id="sobre">
+        <h4>Sobre</h4>
+      </div>
     </div>
     <footer>
       <div>
