@@ -145,6 +145,8 @@ a:hover {
     font-size: unset;
   }
   header {
+    padding-left: 15px;
+    padding-right: 15px;
     flex-direction: column;
   }
 
@@ -180,14 +182,21 @@ a:hover {
     font-size: unset;
   }
 
+  form {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
   form input,
   select,
   label {
-    width: 50%;
+    width: 75%;
     font-size: small;
   }
 
   footer {
+    padding-left: 15px;
+    padding-right: 15px;
     font-size: xx-small;
   }
 
