@@ -66,13 +66,6 @@ nav {
   font-size: large;
 }
 
-#inicio {
-  padding-top: 15px;
-  display: flex;
-  flex-direction: row;
-  text-align: justify;
-}
-
 #area,
 #comprimento,
 #massa,

@@ -27,7 +27,7 @@ function carregadados() {
   calculacomprimento()
   calculamassa()
   calculatemperatura()
-  definediv(0)
+  definediv(1)
 }
 
 function defineusuario() {
@@ -47,7 +47,6 @@ function defineusuario() {
 }
 
 function definediv(div) {
-  inicio = document.getElementById("inicio").style
   area = document.getElementById("area").style
   comprimento = document.getElementById("comprimento").style
   massa = document.getElementById("massa").style
@@ -56,18 +55,7 @@ function definediv(div) {
   velocidade = document.getElementById("velocidade").style
   volume = document.getElementById("volume").style
   sobre = document.getElementById("sobre").style
-  if (div == 0) {
-    inicio.display = "flex"
-    area.display = "none"
-    comprimento.display = "none"
-    massa.display = "none"
-    moeda.display = "none"
-    temperatura.display = "none"
-    velocidade.display = "none"
-    volume.display = "none"
-    sobre.display = "none"
-  } else if (div == 1) {
-    inicio.display = "none"
+  if (div == 1) {
     area.display = "flex"
     comprimento.display = "none"
     massa.display = "none"
@@ -77,7 +65,6 @@ function definediv(div) {
     volume.display = "none"
     sobre.display = "none"
   } else if (div == 2) {
-    inicio.display = "none"
     area.display = "none"
     comprimento.display = "flex"
     massa.display = "none"
@@ -87,7 +74,6 @@ function definediv(div) {
     volume.display = "none"
     sobre.display = "none"
   } else if (div == 3) {
-    inicio.display = "none"
     area.display = "none"
     comprimento.display = "none"
     massa.display = "flex"
@@ -97,7 +83,6 @@ function definediv(div) {
     volume.display = "none"
     sobre.display = "none"
   } else if (div == 4) {
-    inicio.display = "none"
     area.display = "none"
     comprimento.display = "none"
     massa.display = "none"
@@ -107,7 +92,6 @@ function definediv(div) {
     volume.display = "none"
     sobre.display = "none"
   } else if (div == 5) {
-    inicio.display = "none"
     area.display = "none"
     comprimento.display = "none"
     massa.display = "none"
@@ -117,7 +101,6 @@ function definediv(div) {
     volume.display = "none"
     sobre.display = "none"
   } else if (div == 6) {
-    inicio.display = "none"
     area.display = "none"
     comprimento.display = "none"
     massa.display = "none"
@@ -127,7 +110,6 @@ function definediv(div) {
     volume.display = "none"
     sobre.display = "none"
   } else if (div == 7) {
-    inicio.display = "none"
     area.display = "none"
     comprimento.display = "none"
     massa.display = "none"
@@ -137,7 +119,6 @@ function definediv(div) {
     volume.display = "flex"
     sobre.display = "none"
   } else if (div == 8) {
-    inicio.display = "none"
     area.display = "none"
     comprimento.display = "none"
     massa.display = "none"
@@ -334,41 +315,8 @@ function calculamassa() {
   }
 }
 
-function moeda() {
-  var uimoeda = document.getElementById("uimoeda")
-  var ufmoeda = document.getElementById("ufmoeda")
-  var moedas = {
-    USD: "Dólar estadunidense (US$)",
-    EUR: "Euro (€)",
-    JPY: "Iene (¥)",
-    GBP: "Libra esterlina (£)",
-    BRL: "Real brasileiro (R$)",
-  }
-  options = []
-  for (var [key, value] of Object.entries(moedas)) {
-    options.push(`<option value="${key}">${value}</option>`)
-  }
-  uimoeda.innerHTML = options.join("\n")
-  ufmoeda.innerHTML = options.join("\n")
-}
-moeda()
-
-async function getURL(url){
-  return (await fetch(url)).json()
-}
 function calculamoeda() {
-  var vimoeda = document.getElementById("vimoeda").value //from_ammount
-  var uimoeda = document.getElementById("uimoeda").value //from_currency
-  var ufmoeda = document.getElementById("ufmoeda").value //to_currency
-  var vfmoeda = document.getElementById("vfmoeda") //to_ammount
-  var cotacao = document.getElementById("cotacaoatual") //tax_info
-
-  var { rates } = await getURL(
-    `https://api.exchangerate-api.com/v4/latest/${uimoeda}`
-  )
-
-  var taxa = rates[ufmoeda]
-  vfmoeda
+  alert("Não configurado")
 }
 
 function calculatemperatura() {
