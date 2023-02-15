@@ -19,28 +19,36 @@ Projeto criado duraten a 6ª edição da [Imersão Dev](https://imersao.dev/) da
 </div>
 
 ## 🧩 Aplicações
+
 Durante o evento, foi proposta a elaboração de 4 aplicações diferentes:
+
 ### 💱 Conversor
+
 Criar um conversor de moedas, onde você conseguirá transformar em real um valor em dólar.
 
-`Desafios`
+**`Desafios:`**
+
 - Adicionar outras moedas para converter;
 - Conversor de quilômetros para anos luz e verificar o tempo que demora para ir de uma estrela para outra;
 - Conversor de temperaturas entre fahrenheit, kelvin e celsius;
 - Adicionar uma linha ao projeto desenvolvido para que apareça o valor em bitcoin.
 
 ### 🔮 Mentalista
+
 Criar um jogo de adivinhação, onde o programa escolhe um número aleatório e nós vamos tentar acertar.
 
-`Desafios`
+**`Desafios:`**
+
 - Adicionar um número de tentativas para a pessoa tentar acertar e imprimir a resposta no final;
 - Quando a pessoa errar, deixe na mensagem se o número chutado é maior ou menor que o número secreto;
 - Pesquisar e aprender a diferença entre == e ===.
 
-### ▶ Aluraflix
+### 🎞 Aluraflix
+
 Criar uma lista com o filme preferido de cada pessoa e exibir os pôsteres de cada filmes na tela do navegador.
 
-`Desafios`
+**`Desafios:`**
+
 - Escolher o seu tema preferido para adaptar ao nosso código, ou seja, ao invés de filmes pode ser uma lista de animes, HQ 's, cursos, capas de jogos, entre outros;
 - Tentar implementar outras versões da estrutura de repetição que fizemos com for, como por exemplo com foreach ou while;
 - Criar uma condição para não adicionar filmes repetidos, caso eles já tenham sido adicionados anteriormente;
@@ -50,9 +58,11 @@ Criar uma lista com o filme preferido de cada pessoa e exibir os pôsteres de ca
 - Guardar todos os filmes adicionados em uma lista/array e percorrer essa lista toda vez que quiser imprimir ou remover o filme.
 
 ### 💯 Tabela de pontos
+
 Criar uma tabela de classificação.
 
-`Desafios`
+**`Desafios:`**
+
 - Fazer a lógica de quando houver um empate, obrigatoriamente deveria já ajustar como empate para os demais jogadores;
 - Validar se todos os pontos estão fazendo sentido, tanto o número de empates, derrotas e vitórias com os demais jogadores (impossível haver mais vitórias que derrotas, por exemplo);
 - Adicionar a imagem de cada jogador;
@@ -61,6 +71,7 @@ Criar uma tabela de classificação.
 - Utilizar seu jogo preferido para se basear na pontuação da sua tabela de classificação.
 
 ## 📥 Como baixar e executar
+
 Para baixar os arquivos deste repositório, você deve ter o [GitHub](https://github.com/) instalado em seu dispositivo.
 
 Após instalado, você deverá acessar a guia `Arquivo` → `Clonar repositório` → `URL` e incluir o caminho `guedesert/imersao-dev-6`.
@@ -70,7 +81,9 @@ Além disso, é interessante que você tenha um bom editor para trabalhar com os
 Para visualizar e visitar o projeto on-line, basta acessá-lo [**clicando aqui**](https://guedesert.github.io/imersao-dev-6/).
 
 ## 🛠 Tecnologias utilizadas
+
 Esse projeto foi desenvolvido com as seguintes tecnologias:
+
 - Linguagens:
   - [HTML5](https://html.spec.whatwg.org/multipage/)
   - [CSS3](https://www.w3.org/Style/CSS/)
