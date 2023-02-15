@@ -27,7 +27,9 @@ function carregadados() {
   calculacomprimento()
   calculamassa()
   calculatemperatura()
-  definediv(1)
+  calculavelocidade()
+  calculavolume()
+  definediv(0)
 }
 
 function defineusuario() {
@@ -47,6 +49,7 @@ function defineusuario() {
 }
 
 function definediv(div) {
+  inicio = document.getElementById("inicio").style
   area = document.getElementById("area").style
   comprimento = document.getElementById("comprimento").style
   massa = document.getElementById("massa").style
@@ -55,7 +58,18 @@ function definediv(div) {
   velocidade = document.getElementById("velocidade").style
   volume = document.getElementById("volume").style
   sobre = document.getElementById("sobre").style
-  if (div == 1) {
+  if (div == 0) {
+    inicio.display = "flex"
+    area.display = "none"
+    comprimento.display = "none"
+    massa.display = "none"
+    moeda.display = "none"
+    temperatura.display = "none"
+    velocidade.display = "none"
+    volume.display = "none"
+    sobre.display = "none"
+  } else if (div == 1) {
+    inicio.display = "none"
     area.display = "flex"
     comprimento.display = "none"
     massa.display = "none"
@@ -65,6 +79,7 @@ function definediv(div) {
     volume.display = "none"
     sobre.display = "none"
   } else if (div == 2) {
+    inicio.display = "none"
     area.display = "none"
     comprimento.display = "flex"
     massa.display = "none"
@@ -74,6 +89,7 @@ function definediv(div) {
     volume.display = "none"
     sobre.display = "none"
   } else if (div == 3) {
+    inicio.display = "none"
     area.display = "none"
     comprimento.display = "none"
     massa.display = "flex"
@@ -83,6 +99,7 @@ function definediv(div) {
     volume.display = "none"
     sobre.display = "none"
   } else if (div == 4) {
+    inicio.display = "none"
     area.display = "none"
     comprimento.display = "none"
     massa.display = "none"
@@ -92,6 +109,7 @@ function definediv(div) {
     volume.display = "none"
     sobre.display = "none"
   } else if (div == 5) {
+    inicio.display = "none"
     area.display = "none"
     comprimento.display = "none"
     massa.display = "none"
@@ -101,6 +119,7 @@ function definediv(div) {
     volume.display = "none"
     sobre.display = "none"
   } else if (div == 6) {
+    inicio.display = "none"
     area.display = "none"
     comprimento.display = "none"
     massa.display = "none"
@@ -110,6 +129,7 @@ function definediv(div) {
     volume.display = "none"
     sobre.display = "none"
   } else if (div == 7) {
+    inicio.display = "none"
     area.display = "none"
     comprimento.display = "none"
     massa.display = "none"
@@ -119,6 +139,7 @@ function definediv(div) {
     volume.display = "flex"
     sobre.display = "none"
   } else if (div == 8) {
+    inicio.display = "none"
     area.display = "none"
     comprimento.display = "none"
     massa.display = "none"
@@ -316,7 +337,11 @@ function calculamassa() {
 }
 
 function calculamoeda() {
-  alert("Não configurado")
+  var vimoeda = document.getElementById("vimoeda").value
+  var uimoeda = document.getElementById("uimoeda").value
+  var ufmoeda = document.getElementById("ufmoeda").value
+  var vfmoeda = document.getElementById("vfmoeda")
+  var url = `https://api.exchangerate-api.com/v4/latest/${vfmoeda}`
 }
 
 function calculatemperatura() {
@@ -349,11 +374,101 @@ function calculatemperatura() {
 }
 
 function calculavelocidade() {
-  alert("Não configurado")
+  var vivelocidade = document.getElementById("vivelocidade").value
+  var uivelocidade = document.getElementById("uivelocidade").value
+  var ufvelocidade = document.getElementById("ufvelocidade").value
+  var vfvelocidade = document.getElementById("vfvelocidade")
+  if (vivelocidade != "") {
+    vivelocidade = parseFloat(vivelocidade)
+    if (uivelocidade != "ms") {
+      if (uivelocidade == "kmh") {
+        var resultado = vivelocidade / 3.6
+      } else if (uivelocidade == "mph") {
+        var resultado = vivelocidade * 0.44704
+      } else if (uivelocidade == "no") {
+        var resultado = vivelocidade * 0.51444
+      }
+    } else {
+      var resultado = vivelocidade
+    }
+    if (ufvelocidade != "ms") {
+      if (ufvelocidade == "kmh") {
+        resultado *= 3.6
+      } else if (ufvelocidade == "mph") {
+        resultado /= 0.44704
+      } else if (ufvelocidade == "no") {
+        resultado /= 0.51444
+      }
+    }
+    vfvelocidade.innerHTML = resultado.toLocaleString("pt-BR")
+  } else {
+    vfvelocidade.innerHTML = "0"
+  }
 }
 
 function calculavolume() {
-  alert("Não configurado")
+  var vivolume = document.getElementById("vivolume").value
+  var uivolume = document.getElementById("uivolume").value
+  var ufvolume = document.getElementById("ufvolume").value
+  var vfvolume = document.getElementById("vfvolume")
+  if (vivolume != "") {
+    vivolume = parseFloat(vivolume)
+    if (uivolume != "l" && uivolume != "dm3") {
+      if (uivolume == "ml") {
+        var resultado = vivolume / 1000
+      } else if (uivolume == "cl") {
+        var resultado = vivolume / 100
+      } else if (uivolume == "dl") {
+        var resultado = vivolume / 10
+      } else if (uivolume == "dal") {
+        var resultado = vivolume * 10
+      } else if (uivolume == "hl") {
+        var resultado = vivolume * 100
+      } else if (uivolume == "mm3") {
+        var resultado = vivolume / 1000000
+      } else if (uivolume == "cm3") {
+        var resultado = vivolume / 1000
+      } else if (uivolume == "m3") {
+        var resultado = vivolume * 1000
+      } else if (uivolume == "dam3") {
+        var resultado = vivolume * 1000000
+      } else if (uivolume == "hm3") {
+        var resultado = vivolume * 1000000000
+      } else if (uivolume == "km3") {
+        var resultado = vivolume * 1000000000000
+      }
+    } else {
+      var resultado = vivolume
+    }
+    if (ufvolume != "l" && ufvolume != "dm3") {
+      if (ufvolume == "ml") {
+        resultado *= 1000
+      } else if (ufvolume == "cl") {
+        resultado *= 100
+      } else if (ufvolume == "dl") {
+        resultado *= 10
+      } else if (ufvolume == "dal") {
+        resultado /= 10
+      } else if (ufvolume == "hl") {
+        resultado /= 100
+      } else if (ufvolume == "mm3") {
+        resultado *= 1000000
+      } else if (ufvolume == "cm3") {
+        resultado *= 1000
+      } else if (ufvolume == "m3") {
+        resultado /= 1000
+      } else if (ufvolume == "dam3") {
+        resultado /= 1000000
+      } else if (ufvolume == "hm3") {
+        resultado /= 1000000000
+      } else if (ufvolume == "km3") {
+        resultado /= 1000000000000
+      }
+    }
+    vfvolume.innerHTML = resultado.toLocaleString("pt-BR")
+  } else {
+    vfvolume.innerHTML = "0"
+  }
 }
 
 function exibemenu() {

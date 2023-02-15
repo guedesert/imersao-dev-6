@@ -39,6 +39,9 @@
       </ul>
     </nav>
     <div id="conteiner">
+      <div id="inicio">
+        <p>Converta rapidamente medidas de grandezas variadas.</p>
+      </div>
       <div id="area">
         <h4>Área</h4>
         <form>
@@ -176,6 +179,8 @@
           <select id="uivelocidade">
             <option value="kmh" selected>Quilômetros por hora (km/h)</option>
             <option value="ms">Metros por segundo (m/s)</option>
+            <option value="mph">Milhas por horas (mph)</option>
+            <option value="no">Nós</option>
           </select>
           <div class="alteraunidade" onclick="trocaunidade(6)">
             <img src="./assets/convericon.svg" alt="" />
@@ -183,6 +188,8 @@
           <select id="ufvelocidade">
             <option value="kmh">Quilômetros por hora (km/h)</option>
             <option value="ms" selected>Metros por segundo (m/s)</option>
+            <option value="mph">Milhas por horas (mph)</option>
+            <option value="no">Nós</option>
           </select>
           <label id="vfvelocidade"></label>
         </form>
@@ -202,8 +209,8 @@
             <option value="cm3">Centímetro cúbico (cm³)</option>
             <option value="dm3">Decímetro cúbico (dm³)</option>
             <option value="m3" selected>Metro cúbico (m³)</option>
-            <option value="dam3">Decâmetro cúbico (m³)</option>
-            <option value="hm3">Hectômetro cúbico (m³)</option>
+            <option value="dam3">Decâmetro cúbico (dam³)</option>
+            <option value="hm3">Hectômetro cúbico (hm³)</option>
             <option value="km3">Quilômetro cúbico (km³)</option>
           </select>
           <div class="alteraunidade" onclick="trocaunidade(7)">

@@ -21,6 +21,9 @@ header {
   padding: 48px 48px 0px;
   background-color: #09090a;
 }
+#usuario {
+  animation: animatexto 4s linear infinite;
+}
 
 #conteiner {
   width: 100%;
@@ -58,12 +61,14 @@ nav {
 }
 
 #menu li:hover {
-  background: linear-gradient(90deg, #ffffff, #d9d9e0);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
   font-weight: bolder;
   font-size: large;
+}
+#inicio {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #area,
@@ -206,5 +211,23 @@ a:hover {
 
   footer img {
     width: 75px;
+  }
+}
+
+@keyframes animatexto {
+  0% {
+    color: #ffffff;
+  }
+  25% {
+    color: #c6c6c6;
+  }
+  50% {
+    color: #919191;
+  }
+  75% {
+    color: #c6c6c6;
+  }
+  100% {
+    color: #ffffff;
   }
 }
