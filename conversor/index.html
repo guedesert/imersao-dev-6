@@ -40,7 +40,10 @@
     </nav>
     <div id="conteiner">
       <div id="inicio">
-        <p>Converta rapidamente medidas de grandezas variadas.</p>
+        <p>
+          Converta rapidamente medidas e medições de grandezas variadas e
+          valores de moedas e de criptomoedas mais populares.
+        </p>
       </div>
       <div id="area">
         <h4>Área</h4>
@@ -75,6 +78,7 @@
         <form>
           <input type="number" id="vicomprimento" value="1" />
           <select id="uicomprimento">
+            <option disabled="disabled" class="optiontitulo">Métrico</option>
             <option value="mm">Milímetro (mm)</option>
             <option value="cm" selected>Centímetro (cm)</option>
             <option value="dm">Decímetro (dm)</option>
@@ -82,11 +86,18 @@
             <option value="dam">Decâmetro (m)</option>
             <option value="hm">Hectômetro (m)</option>
             <option value="km">Quilômetro (km)</option>
+            <option disabled="disabled" class="optiontitulo">
+              Astronômico
+            </option>
+            <option value="pc">Parsec (pc)</option>
+            <option value="ly">Ano-luz (ly)</option>
+            <option value="au">Unidade astronômica (au)</option>
           </select>
           <div class="alteraunidade" onclick="trocaunidade(2)">
             <img src="./assets/convericon.svg" alt="" />
           </div>
           <select id="ufcomprimento">
+            <option disabled="disabled" class="optiontitulo">Métrico</option>
             <option value="mm">Milímetro (mm)</option>
             <option value="cm">Centímetro (cm)</option>
             <option value="dm">Decímetro (dm)</option>
@@ -94,6 +105,12 @@
             <option value="dam">Decâmetro (m)</option>
             <option value="hm">Hectômetro (m)</option>
             <option value="km">Quilômetro (km)</option>
+            <option disabled="disabled" class="optiontitulo">
+              Astronômico
+            </option>
+            <option value="pc">Parsec (pc)</option>
+            <option value="ly">Ano-luz (ly)</option>
+            <option value="au">Unidade astronômica (au)</option>
           </select>
           <label id="vfcomprimento"></label>
         </form>
@@ -138,6 +155,8 @@
             <option value="JPY">Iene (¥)</option>
             <option value="GBP">Libra esterlina (£)</option>
             <option value="BRL">Real brasileiro (R$)</option>
+            <option value="BTC">Bitcoin (₿)</option>
+            <option value="ETH">Ethereum (⟠)</option>
           </select>
           <div class="alteraunidade" onclick="trocaunidade(4)">
             <img src="./assets/convericon.svg" alt="" />
@@ -148,9 +167,12 @@
             <option value="JPY">Iene (¥)</option>
             <option value="GBP">Libra esterlina (£)</option>
             <option value="BRL" selected>Real brasileiro (R$)</option>
+            <option value="BTC">Bitcoin (₿)</option>
+            <option value="ETH">Ethereum (⟠)</option>
           </select>
           <label id="vfmoeda"></label>
         </form>
+        <label id="datadeatualizacao"></label>
       </div>
       <div id="temperatura">
         <h4>Temperatura</h4>
@@ -181,6 +203,8 @@
             <option value="ms">Metros por segundo (m/s)</option>
             <option value="mph">Milhas por horas (mph)</option>
             <option value="no">Nós</option>
+            <option value="ma">Velocidade do som (Ma)</option>
+            <option value="c">Velocidade da luz (c)</option>
           </select>
           <div class="alteraunidade" onclick="trocaunidade(6)">
             <img src="./assets/convericon.svg" alt="" />
@@ -190,6 +214,8 @@
             <option value="ms" selected>Metros por segundo (m/s)</option>
             <option value="mph">Milhas por horas (mph)</option>
             <option value="no">Nós</option>
+            <option value="ma">Velocidade do som (Ma)</option>
+            <option value="c">Velocidade da luz (c)</option>
           </select>
           <label id="vfvelocidade"></label>
         </form>
@@ -237,6 +263,7 @@
       <div id="sobre">
         <h4>Sobre</h4>
       </div>
+      <div id="curiosidades"></div>
     </div>
     <footer>
       <div>

@@ -26,6 +26,7 @@ function carregadados() {
   calculaarea()
   calculacomprimento()
   calculamassa()
+  calculamoeda()
   calculatemperatura()
   calculavelocidade()
   calculavolume()
@@ -197,6 +198,7 @@ function trocaunidade(grandeza) {
   }
 }
 
+// Valor padrão: Metro quadrado (m²)
 function calculaarea() {
   var viarea = document.getElementById("viarea").value
   var uiarea = document.getElementById("uiarea").value
@@ -236,12 +238,18 @@ function calculaarea() {
         resultado /= 1000
       }
     }
-    vfarea.innerHTML = resultado.toLocaleString("pt-BR")
+    if (resultado < 1) {
+      var formato = { maximumFractionDigits: 10 }
+    } else {
+      var formato = { maximumFractionDigits: 2 }
+    }
+    vfarea.innerHTML = resultado.toLocaleString("pt-BR", formato)
   } else {
     vfarea.innerHTML = "0"
   }
 }
 
+// Valor padrão: Metro (m)
 function calculacomprimento() {
   var vicomprimento = document.getElementById("vicomprimento").value
   var uicomprimento = document.getElementById("uicomprimento").value
@@ -262,6 +270,12 @@ function calculacomprimento() {
         var resultado = vicomprimento * 100
       } else if (uicomprimento == "km") {
         var resultado = vicomprimento * 1000
+      } else if (uicomprimento == "ly") {
+        var resultado = vicomprimento * 9460730472580800
+      } else if (uicomprimento == "au") {
+        var resultado = vicomprimento * 149597870700
+      } else if (uicomprimento == "pc") {
+        var resultado = vicomprimento * (96939420213600000 / Math.PI)
       }
     } else {
       var resultado = vicomprimento
@@ -279,14 +293,26 @@ function calculacomprimento() {
         resultado /= 100
       } else if (ufcomprimento == "km") {
         resultado /= 1000
+      } else if (ufcomprimento == "ly") {
+        resultado /= 9460730472580800
+      } else if (ufcomprimento == "au") {
+        resultado /= 149597870700
+      } else if (ufcomprimento == "pc") {
+        resultado /= 96939420213600000 / Math.PI
       }
     }
-    vfcomprimento.innerHTML = resultado.toLocaleString("pt-BR")
+    if (resultado < 1) {
+      var formato = { maximumFractionDigits: 10 }
+    } else {
+      var formato = { maximumFractionDigits: 2 }
+    }
+    vfcomprimento.innerHTML = resultado.toLocaleString("pt-BR", formato)
   } else {
     vfcomprimento.innerHTML = "0"
   }
 }
 
+// Valor padrão: Grama (g)
 function calculamassa() {
   var vimassa = document.getElementById("vimassa").value
   var uimassa = document.getElementById("uimassa").value
@@ -330,9 +356,96 @@ function calculamassa() {
         resultado /= 1000000
       }
     }
-    vfmassa.innerHTML = resultado.toLocaleString("pt-BR")
+    if (resultado < 1) {
+      var formato = { maximumFractionDigits: 10 }
+    } else {
+      var formato = { maximumFractionDigits: 2 }
+    }
+    vfmassa.innerHTML = resultado.toLocaleString("pt-BR", formato)
   } else {
     vfmassa.innerHTML = "0"
+  }
+}
+
+// Valor padrão para criptomoedas: Dólar americano (US$)
+async function convertemoeda(uimoeda, ufmoeda, vimoeda, vfmoeda) {
+  var urldolar = "https://api.exchangerate-api.com/v4/latest/USD"
+  var respostadolar = await fetch(urldolar)
+  var dadosdolar = await respostadolar.json()
+  var dolareur = dadosdolar.rates.EUR
+  var dolarjpy = dadosdolar.rates.JPY
+  var dolargbp = dadosdolar.rates.GBP
+  var dolarbrl = dadosdolar.rates.BRL
+  var urlbitcoin = "https://api.coincap.io/v2/assets/bitcoin"
+  var respostabitcoin = await fetch(urlbitcoin)
+  var dadosbitcoin = await respostabitcoin.json()
+  var taxabitcoin = dadosbitcoin.data.priceUsd
+  var urlethereum = "https://api.coincap.io/v2/assets/ethereum"
+  var respostaethereum = await fetch(urlethereum)
+  var dadosethereum = await respostaethereum.json()
+  var taxaethereum = dadosethereum.data.priceUsd
+  if (vimoeda != "") {
+    if (uimoeda != "BTC" && uimoeda != "ETH") {
+      var url = `https://api.exchangerate-api.com/v4/latest/${uimoeda}`
+      var resposta = await fetch(url)
+      var dados = await resposta.json()
+      var dolar = dados.rates.USD
+      var euro = dados.rates.EUR
+      var iene = dados.rates.JPY
+      var libra = dados.rates.GBP
+      var real = dados.rates.BRL
+      if (ufmoeda == "USD") {
+        var resultado = dolar * vimoeda
+      } else if (ufmoeda == "EUR") {
+        var resultado = euro * vimoeda
+      } else if (ufmoeda == "JPY") {
+        var resultado = iene * vimoeda
+      } else if (ufmoeda == "GBP") {
+        var resultado = libra * vimoeda
+      } else if (ufmoeda == "BRL") {
+        var resultado = real * vimoeda
+      } else if (ufmoeda == "BTC") {
+        var resultado = (dolar * vimoeda) / taxabitcoin
+      } else if (ufmoeda == "ETH") {
+        var resultado = (dolar * vimoeda) / taxaethereum
+      }
+    } else if (uimoeda == "BTC") {
+      if (ufmoeda == "USD") {
+        var resultado = taxabitcoin * vimoeda
+      } else if (ufmoeda == "EUR") {
+        var resultado = taxabitcoin * dolareur * vimoeda
+      } else if (ufmoeda == "JPY") {
+        var resultado = taxabitcoin * dolarjpy * vimoeda
+      } else if (ufmoeda == "GBP") {
+        var resultado = taxabitcoin * dolargbp * vimoeda
+      } else if (ufmoeda == "BRL") {
+        var resultado = taxabitcoin * dolarbrl * vimoeda
+      } else if (ufmoeda == "ETH") {
+        var resultado = taxabitcoin / taxaethereum
+      }
+    } else if (uimoeda == "ETH") {
+      if (ufmoeda == "USD") {
+        var resultado = taxaethereum * vimoeda
+      } else if (ufmoeda == "EUR") {
+        var resultado = taxaethereum * dolareur * vimoeda
+      } else if (ufmoeda == "JPY") {
+        var resultado = taxaethereum * dolarjpy * vimoeda
+      } else if (ufmoeda == "GBP") {
+        var resultado = taxaethereum * dolargbp * vimoeda
+      } else if (ufmoeda == "BRL") {
+        var resultado = taxaethereum * dolarbrl * vimoeda
+      } else if (ufmoeda == "BTC") {
+        var resultado = taxaethereum / taxabitcoin
+      }
+    }
+    if (resultado < 1) {
+      var formato = { minimumFractionDigits: 2, maximumFractionDigits: 10 }
+    } else {
+      var formato = { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+    }
+    vfmoeda.innerHTML = resultado.toLocaleString("pt-BR", formato)
+  } else {
+    vfmoeda.innerHTML = "0"
   }
 }
 
@@ -341,9 +454,10 @@ function calculamoeda() {
   var uimoeda = document.getElementById("uimoeda").value
   var ufmoeda = document.getElementById("ufmoeda").value
   var vfmoeda = document.getElementById("vfmoeda")
-  var url = `https://api.exchangerate-api.com/v4/latest/${vfmoeda}`
+  convertemoeda(uimoeda, ufmoeda, vimoeda, vfmoeda)
 }
 
+// Valor padrão: Celsius (°C)
 function calculatemperatura() {
   var vitemperatura = document.getElementById("vitemperatura").value
   var uitemperatura = document.getElementById("uitemperatura").value
@@ -367,12 +481,18 @@ function calculatemperatura() {
         resultado += 273.15
       }
     }
-    vftemperatura.innerHTML = resultado.toLocaleString("pt-BR")
+    if (resultado < 1) {
+      var formato = { maximumFractionDigits: 10 }
+    } else {
+      var formato = { maximumFractionDigits: 2 }
+    }
+    vftemperatura.innerHTML = resultado.toLocaleString("pt-BR", formato)
   } else {
     vftemperatura.innerHTML = "0"
   }
 }
 
+// Valor padrão: Metros por segundo (m/s)
 function calculavelocidade() {
   var vivelocidade = document.getElementById("vivelocidade").value
   var uivelocidade = document.getElementById("uivelocidade").value
@@ -387,6 +507,10 @@ function calculavelocidade() {
         var resultado = vivelocidade * 0.44704
       } else if (uivelocidade == "no") {
         var resultado = vivelocidade * 0.51444
+      } else if (uivelocidade == "ma") {
+        var resultado = vivelocidade * 343
+      } else if (uivelocidade == "c") {
+        var resultado = vivelocidade * 299792458
       }
     } else {
       var resultado = vivelocidade
@@ -398,14 +522,24 @@ function calculavelocidade() {
         resultado /= 0.44704
       } else if (ufvelocidade == "no") {
         resultado /= 0.51444
+      } else if (ufvelocidade == "ma") {
+        resultado /= 343
+      } else if (ufvelocidade == "c") {
+        resultado /= 299792458
       }
     }
-    vfvelocidade.innerHTML = resultado.toLocaleString("pt-BR")
+    if (resultado < 1) {
+      var formato = { maximumFractionDigits: 10 }
+    } else {
+      var formato = { maximumFractionDigits: 2 }
+    }
+    vfvelocidade.innerHTML = resultado.toLocaleString("pt-BR", formato)
   } else {
     vfvelocidade.innerHTML = "0"
   }
 }
 
+// Valor padrão: Litro (L), que é equivalente a Decimetros cúbicos (dm³)
 function calculavolume() {
   var vivolume = document.getElementById("vivolume").value
   var uivolume = document.getElementById("uivolume").value
@@ -465,7 +599,12 @@ function calculavolume() {
         resultado /= 1000000000000
       }
     }
-    vfvolume.innerHTML = resultado.toLocaleString("pt-BR")
+    if (resultado < 1) {
+      var formato = { maximumFractionDigits: 10 }
+    } else {
+      var formato = { maximumFractionDigits: 2 }
+    }
+    vfvolume.innerHTML = resultado.toLocaleString("pt-BR", formato)
   } else {
     vfvolume.innerHTML = "0"
   }

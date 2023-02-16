@@ -64,8 +64,10 @@ nav {
   font-weight: bolder;
   font-size: large;
 }
+
 #inicio {
-  margin-top: 15px;
+  text-align: center;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,9 +113,22 @@ form label {
   color: #09090a;
   background-color: #ffffff;
 }
+
+.optiontitulo {
+  color: #ffffff;
+  background-color: #09090a;
+}
+
 .alteraunidade {
   margin: 10px;
   cursor: pointer;
+}
+
+#datadeatualizacao {
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: small;
 }
 
 footer {
@@ -185,6 +200,15 @@ a:hover {
 
   #menu li:hover {
     font-size: unset;
+  }
+
+  #inicio {
+    text-align: center;
+    font-size: small;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   form {
