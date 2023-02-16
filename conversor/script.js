@@ -374,7 +374,9 @@ async function convertemoeda(uimoeda, ufmoeda, vimoeda, vfmoeda) {
   var dadosdolar = await respostadolar.json()
   var dolareur = dadosdolar.rates.EUR
   var dolarjpy = dadosdolar.rates.JPY
+  var dolarcny = dadosdolar.rates.CNY
   var dolargbp = dadosdolar.rates.GBP
+  var dolarars = dadosdolar.rates.ARS
   var dolarbrl = dadosdolar.rates.BRL
   var urlbitcoin = "https://api.coincap.io/v2/assets/bitcoin"
   var respostabitcoin = await fetch(urlbitcoin)
@@ -392,7 +394,9 @@ async function convertemoeda(uimoeda, ufmoeda, vimoeda, vfmoeda) {
       var dolar = dados.rates.USD
       var euro = dados.rates.EUR
       var iene = dados.rates.JPY
+      var yuan = dados.rates.CNY
       var libra = dados.rates.GBP
+      var peso = dados.rates.ARS
       var real = dados.rates.BRL
       if (ufmoeda == "USD") {
         var resultado = dolar * vimoeda
@@ -400,8 +404,12 @@ async function convertemoeda(uimoeda, ufmoeda, vimoeda, vfmoeda) {
         var resultado = euro * vimoeda
       } else if (ufmoeda == "JPY") {
         var resultado = iene * vimoeda
+      } else if (ufmoeda == "CNY") {
+        var resultado = yuan * vimoeda
       } else if (ufmoeda == "GBP") {
         var resultado = libra * vimoeda
+      } else if (ufmoeda == "ARS") {
+        var resultado = peso * vimoeda
       } else if (ufmoeda == "BRL") {
         var resultado = real * vimoeda
       } else if (ufmoeda == "BTC") {
@@ -416,8 +424,12 @@ async function convertemoeda(uimoeda, ufmoeda, vimoeda, vfmoeda) {
         var resultado = taxabitcoin * dolareur * vimoeda
       } else if (ufmoeda == "JPY") {
         var resultado = taxabitcoin * dolarjpy * vimoeda
+      } else if (ufmoeda == "CNY") {
+        var resultado = taxabitcoin * dolarcny * vimoeda
       } else if (ufmoeda == "GBP") {
         var resultado = taxabitcoin * dolargbp * vimoeda
+      } else if (ufmoeda == "ARS") {
+        var resultado = taxabitcoin * dolarars * vimoeda
       } else if (ufmoeda == "BRL") {
         var resultado = taxabitcoin * dolarbrl * vimoeda
       } else if (ufmoeda == "ETH") {
@@ -430,8 +442,12 @@ async function convertemoeda(uimoeda, ufmoeda, vimoeda, vfmoeda) {
         var resultado = taxaethereum * dolareur * vimoeda
       } else if (ufmoeda == "JPY") {
         var resultado = taxaethereum * dolarjpy * vimoeda
+      } else if (ufmoeda == "CNY") {
+        var resultado = taxaethereum * dolarcny * vimoeda
       } else if (ufmoeda == "GBP") {
         var resultado = taxaethereum * dolargbp * vimoeda
+      } else if (ufmoeda == "ARS") {
+        var resultado = taxaethereum * dolarars * vimoeda
       } else if (ufmoeda == "BRL") {
         var resultado = taxaethereum * dolarbrl * vimoeda
       } else if (ufmoeda == "BTC") {
