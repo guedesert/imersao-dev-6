@@ -270,10 +270,10 @@ function calculacomprimento() {
         var resultado = vicomprimento * 100
       } else if (uicomprimento == "km") {
         var resultado = vicomprimento * 1000
-      } else if (uicomprimento == "ly") {
-        var resultado = vicomprimento * 9460730472580800
       } else if (uicomprimento == "au") {
         var resultado = vicomprimento * 149597870700
+      } else if (uicomprimento == "ly") {
+        var resultado = vicomprimento * 9460730472580800
       } else if (uicomprimento == "pc") {
         var resultado = vicomprimento * (96939420213600000 / Math.PI)
       }
@@ -293,10 +293,10 @@ function calculacomprimento() {
         resultado /= 100
       } else if (ufcomprimento == "km") {
         resultado /= 1000
-      } else if (ufcomprimento == "ly") {
-        resultado /= 9460730472580800
       } else if (ufcomprimento == "au") {
         resultado /= 149597870700
+      } else if (ufcomprimento == "ly") {
+        resultado /= 9460730472580800
       } else if (ufcomprimento == "pc") {
         resultado /= 96939420213600000 / Math.PI
       }
