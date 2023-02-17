@@ -77,6 +77,7 @@ function definediv(div) {
     carregacuriosidades(
       todascuriosidades[Math.floor(Math.random() * todascuriosidades.length)]
     )
+    return
   } else if (div == 1) {
     inicio.display = "none"
     area.display = "flex"
@@ -179,6 +180,7 @@ function definediv(div) {
     volume.display = "none"
     sobre.display = "flex"
   }
+  exibemenu()
 }
 
 function trocaunidade(grandeza) {
@@ -766,8 +768,10 @@ function exibemenu() {
   var div = document.getElementById("menuextendido").style.display
   if (div == "none") {
     document.getElementById("menuextendido").style.display = "flex"
-  } else {
+    document.getElementById("curiosidades").hidden = true
+  } else if (tela.matches) {
     document.getElementById("menuextendido").style.display = "none"
+    document.getElementById("curiosidades").hidden = false
   }
 }
 
