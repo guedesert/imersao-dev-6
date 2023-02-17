@@ -16,9 +16,11 @@
   </head>
   <body>
     <header>
-      <a href="./index.html"
-        ><img src="./assets/logo.svg" alt="Logo do Conversor Intergalático"
-      /></a>
+      <img
+        src="./assets/logo.svg"
+        alt="Logo do Conversor Intergalático"
+        onclick="definediv(0)"
+      />
       <div id="usuario" onclick="defineusuario()"></div>
     </header>
     <nav>
@@ -227,31 +229,39 @@
         <form>
           <input type="number" id="vitempo" value="1" />
           <select id="uitempo">
-            <option value="A">Anos</option>
-            <option value="M">Meses</option>
-            <option value="S">Semanas</option>
-            <option value="D">Dias</option>
-            <option value="h" selected>Horas (h)</option>
-            <option value="m">Minutos (m)</option>
-            <option value="s">Segundos (s)</option>
-            <option value="ms">Milissegundos (ms)</option>
-            <option value="µs">Microssegundos (µs)</option>
-            <option value="ns">Nanossegundos (ns)</option>
+            <option value="mil">Milênio</option>
+            <option value="sec">Século (séc.)</option>
+            <option value="dec">Década (déc.)</option>
+            <option value="A">Ano</option>
+            <option value="M">Mês</option>
+            <option value="Q">Quinzena</option>
+            <option value="S">Semana</option>
+            <option value="D">Dia</option>
+            <option value="h" selected>Hora (h)</option>
+            <option value="m">Minuto (m)</option>
+            <option value="s">Segundo (s)</option>
+            <option value="ms">Milissegundo (ms)</option>
+            <option value="µs">Microssegundo (µs)</option>
+            <option value="ns">Nanossegundo (ns)</option>
           </select>
           <div class="alteraunidade" onclick="trocaunidade(6)">
             <img src="./assets/convericon.svg" alt="" />
           </div>
           <select id="uftempo">
-            <option value="A">Anos</option>
-            <option value="M">Meses</option>
-            <option value="S">Semanas</option>
-            <option value="D">Dias</option>
-            <option value="h">Horas</option>
-            <option value="m" selected>Minutos (m)</option>
-            <option value="s">Segundos (s)</option>
-            <option value="ms">Milissegundos (ms)</option>
-            <option value="µs">Microssegundos (µs)</option>
-            <option value="ns">Nanossegundos (ns)</option>
+            <option value="mil">Milênio</option>
+            <option value="sec">Século (séc.)</option>
+            <option value="dec">Década (déc.)</option>
+            <option value="A">Ano</option>
+            <option value="M">Mese</option>
+            <option value="Q">Quinzena</option>
+            <option value="S">Semana</option>
+            <option value="D">Dia</option>
+            <option value="h">Hora</option>
+            <option value="m" selected>Minuto (m)</option>
+            <option value="s">Segundo (s)</option>
+            <option value="ms">Milissegundo (ms)</option>
+            <option value="µs">Microssegundo (µs)</option>
+            <option value="ns">Nanossegundo (ns)</option>
           </select>
           <label id="vftempo"></label>
         </form>
@@ -261,10 +271,10 @@
         <form>
           <input type="number" id="vivelocidade" value="1" />
           <select id="uivelocidade">
-            <option value="kmh" selected>Quilômetros por hora (km/h)</option>
-            <option value="ms">Metros por segundo (m/s)</option>
-            <option value="mph">Milhas por hora (mph)</option>
-            <option value="no">Nós</option>
+            <option value="kmh" selected>Quilômetro por hora (km/h)</option>
+            <option value="ms">Metro por segundo (m/s)</option>
+            <option value="mph">Milha por hora (mph)</option>
+            <option value="no">Nó</option>
             <option value="ma">Velocidade do som (Ma)</option>
             <option value="c">Velocidade da luz (c)</option>
           </select>
@@ -272,10 +282,10 @@
             <img src="./assets/convericon.svg" alt="" />
           </div>
           <select id="ufvelocidade">
-            <option value="kmh">Quilômetros por hora (km/h)</option>
-            <option value="ms" selected>Metros por segundo (m/s)</option>
-            <option value="mph">Milhas por hora (mph)</option>
-            <option value="no">Nós</option>
+            <option value="kmh">Quilômetro por hora (km/h)</option>
+            <option value="ms" selected>Metro por segundo (m/s)</option>
+            <option value="mph">Milha por hora (mph)</option>
+            <option value="no">Nó</option>
             <option value="ma">Velocidade do som (Ma)</option>
             <option value="c">Velocidade da luz (c)</option>
           </select>

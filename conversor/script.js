@@ -168,7 +168,7 @@ function definediv(div) {
     velocidade.display = "none"
     volume.display = "flex"
     sobre.display = "none"
-  } else if (div == 8) {
+  } else if (div == 9) {
     inicio.display = "none"
     area.display = "none"
     comprimento.display = "none"
@@ -588,12 +588,20 @@ function calculatempo() {
   if (vitempo != "") {
     vitempo = parseFloat(vitempo)
     if (uitempo != "m") {
-      if (uitempo == "A") {
+      if (uitempo == "mil") {
+        var resultado = vitempo * 525600000
+      } else if (uitempo == "sec") {
+        var resultado = vitempo * 52560000
+      } else if (uitempo == "dec") {
+        var resultado = vitempo * 5256000
+      } else if (uitempo == "A") {
         // 385 dias
         var resultado = vitempo * 525600
       } else if (uitempo == "M") {
         // 30 dias
         var resultado = vitempo * 43200
+      } else if (uitempo == "Q") {
+        var resultado = vitempo * 21600
       } else if (uitempo == "S") {
         var resultado = vitempo * 10080
       } else if (uitempo == "D") {
@@ -613,12 +621,20 @@ function calculatempo() {
       var resultado = vitempo
     }
     if (uftempo != "m") {
-      if (uftempo == "A") {
+      if (uftempo == "mil") {
+        resultado /= 525600000
+      } else if (uftempo == "sec") {
+        resultado /= 52560000
+      } else if (uftempo == "dec") {
+        resultado /= 5256000
+      } else if (uftempo == "A") {
         // 385 dias
         resultado /= 525600
       } else if (uftempo == "M") {
         // 30 dias
         resultado /= 43200
+      } else if (uftempo == "Q") {
+        resultado /= 21600
       } else if (uftempo == "S") {
         resultado /= 10080
       } else if (uftempo == "D") {

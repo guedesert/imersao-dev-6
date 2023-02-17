@@ -21,6 +21,11 @@ header {
   padding: 48px 48px 0px;
   background-color: #09090a;
 }
+
+header img {
+  cursor: pointer;
+}
+
 #usuario {
   animation: animatexto 4s linear infinite;
 }
@@ -167,6 +172,11 @@ form label {
   left: 0;
   right: 0;
   bottom: 20%;
+}
+
+#curiosidades span:hover {
+  color: #a1a1aa;
+  cursor: pointer;
 }
 
 footer {
