@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Conversor Intergalático</title>
     <link rel="stylesheet" href="./style.css" />
-    <link rel="icon" href="./assets/favicon.ico" />
+    <link rel="icon" href="./assets/favicon.svg" />
   </head>
   <body>
     <header>
@@ -32,18 +32,17 @@
           <li onclick="definediv(3)">Massa</li>
           <li onclick="definediv(4)">Moeda</li>
           <li onclick="definediv(5)">Temperatura</li>
-          <li onclick="definediv(6)">Velocidade</li>
-          <li onclick="definediv(7)">Volume</li>
-          <li class="sobre" onclick="definediv(8)">Sobre</li>
+          <li onclick="definediv(6)">Tempo</li>
+          <li onclick="definediv(7)">Velocidade</li>
+          <li onclick="definediv(8)">Volume</li>
+          <li class="sobre" onclick="definediv(9)">Sobre</li>
         </div>
       </ul>
     </nav>
     <div id="conteiner">
       <div id="inicio">
-        <p>
-          Converta rapidamente medidas e medições de grandezas variadas e
-          valores de moedas e de criptomoedas mais populares.
-        </p>
+        Converta rapidamente medidas e medições de grandezas variadas e valores
+        de moedas e de criptomoedas mais populares.
       </div>
       <div id="area">
         <h4>Área</h4>
@@ -176,7 +175,32 @@
           </select>
           <label id="vfmoeda"></label>
         </form>
-        <label id="datadeatualizacao"></label>
+        <div id="principaiscotacoes">
+          <div class="cotacao">
+            <div class="moeda">
+              <img src="./assets/bitcoin.svg" alt="" />
+              <span>R$&nbsp;<label id="cotacaobitcoin"></label></span>
+            </div>
+          </div>
+          <div class="cotacao">
+            <div class="moeda">
+              <img src="./assets/ethereum.svg" alt="" />
+              <span>R$&nbsp;<label id="cotacaoethereum"></label></span>
+            </div>
+          </div>
+          <div class="cotacao">
+            <div class="moeda">
+              <img src="./assets/dolar.svg" alt="" />
+              <span>R$&nbsp;<label id="cotacaodolar"></label></span>
+            </div>
+          </div>
+          <div class="cotacao">
+            <div class="moeda">
+              <img src="./assets/euro.svg" alt="" />
+              <span>R$&nbsp;<label id="cotacaoeuro"></label></span>
+            </div>
+          </div>
+        </div>
       </div>
       <div id="temperatura">
         <h4>Temperatura</h4>
@@ -198,6 +222,40 @@
           <label id="vftemperatura"></label>
         </form>
       </div>
+      <div id="tempo">
+        <h4>Tempo</h4>
+        <form>
+          <input type="number" id="vitempo" value="1" />
+          <select id="uitempo">
+            <option value="A">Anos</option>
+            <option value="M">Meses</option>
+            <option value="S">Semanas</option>
+            <option value="D">Dias</option>
+            <option value="h" selected>Horas (h)</option>
+            <option value="m">Minutos (m)</option>
+            <option value="s">Segundos (s)</option>
+            <option value="ms">Milissegundos (ms)</option>
+            <option value="µs">Microssegundos (µs)</option>
+            <option value="ns">Nanossegundos (ns)</option>
+          </select>
+          <div class="alteraunidade" onclick="trocaunidade(6)">
+            <img src="./assets/convericon.svg" alt="" />
+          </div>
+          <select id="uftempo">
+            <option value="A">Anos</option>
+            <option value="M">Meses</option>
+            <option value="S">Semanas</option>
+            <option value="D">Dias</option>
+            <option value="h">Horas</option>
+            <option value="m" selected>Minutos (m)</option>
+            <option value="s">Segundos (s)</option>
+            <option value="ms">Milissegundos (ms)</option>
+            <option value="µs">Microssegundos (µs)</option>
+            <option value="ns">Nanossegundos (ns)</option>
+          </select>
+          <label id="vftempo"></label>
+        </form>
+      </div>
       <div id="velocidade">
         <h4>Velocidade</h4>
         <form>
@@ -205,18 +263,18 @@
           <select id="uivelocidade">
             <option value="kmh" selected>Quilômetros por hora (km/h)</option>
             <option value="ms">Metros por segundo (m/s)</option>
-            <option value="mph">Milhas por horas (mph)</option>
+            <option value="mph">Milhas por hora (mph)</option>
             <option value="no">Nós</option>
             <option value="ma">Velocidade do som (Ma)</option>
             <option value="c">Velocidade da luz (c)</option>
           </select>
-          <div class="alteraunidade" onclick="trocaunidade(6)">
+          <div class="alteraunidade" onclick="trocaunidade(7)">
             <img src="./assets/convericon.svg" alt="" />
           </div>
           <select id="ufvelocidade">
             <option value="kmh">Quilômetros por hora (km/h)</option>
             <option value="ms" selected>Metros por segundo (m/s)</option>
-            <option value="mph">Milhas por horas (mph)</option>
+            <option value="mph">Milhas por hora (mph)</option>
             <option value="no">Nós</option>
             <option value="ma">Velocidade do som (Ma)</option>
             <option value="c">Velocidade da luz (c)</option>
@@ -243,7 +301,7 @@
             <option value="hm3">Hectômetro cúbico (hm³)</option>
             <option value="km3">Quilômetro cúbico (km³)</option>
           </select>
-          <div class="alteraunidade" onclick="trocaunidade(7)">
+          <div class="alteraunidade" onclick="trocaunidade(8)">
             <img src="./assets/convericon.svg" alt="" />
           </div>
           <select id="ufvolume">

@@ -3,6 +3,7 @@ var formcomprimento = document.querySelector("#comprimento")
 var formmassa = document.querySelector("#massa")
 var formmoeda = document.querySelector("#moeda")
 var formtemperatura = document.querySelector("#temperatura")
+var formtempo = document.querySelector("#tempo")
 var formvelocidade = document.querySelector("#velocidade")
 var formvolume = document.querySelector("#volume")
 var bannerusuario = document.getElementById("usuario")
@@ -19,6 +20,7 @@ formcomprimento.addEventListener("change", calculacomprimento)
 formmassa.addEventListener("change", calculamassa)
 formmoeda.addEventListener("change", calculamoeda)
 formtemperatura.addEventListener("change", calculatemperatura)
+formtempo.addEventListener("change", calculatempo)
 formvelocidade.addEventListener("change", calculavelocidade)
 formvolume.addEventListener("change", calculavolume)
 
@@ -28,6 +30,7 @@ function carregadados() {
   calculamassa()
   calculamoeda()
   calculatemperatura()
+  calculatempo()
   calculavelocidade()
   calculavolume()
   definediv(0)
@@ -50,15 +53,16 @@ function defineusuario() {
 }
 
 function definediv(div) {
-  inicio = document.getElementById("inicio").style
-  area = document.getElementById("area").style
-  comprimento = document.getElementById("comprimento").style
-  massa = document.getElementById("massa").style
-  moeda = document.getElementById("moeda").style
-  temperatura = document.getElementById("temperatura").style
-  velocidade = document.getElementById("velocidade").style
-  volume = document.getElementById("volume").style
-  sobre = document.getElementById("sobre").style
+  var inicio = document.getElementById("inicio").style
+  var area = document.getElementById("area").style
+  var comprimento = document.getElementById("comprimento").style
+  var massa = document.getElementById("massa").style
+  var moeda = document.getElementById("moeda").style
+  var temperatura = document.getElementById("temperatura").style
+  var tempo = document.getElementById("tempo").style
+  var velocidade = document.getElementById("velocidade").style
+  var volume = document.getElementById("volume").style
+  var sobre = document.getElementById("sobre").style
   if (div == 0) {
     inicio.display = "flex"
     area.display = "none"
@@ -66,9 +70,13 @@ function definediv(div) {
     massa.display = "none"
     moeda.display = "none"
     temperatura.display = "none"
+    tempo.display = "none"
     velocidade.display = "none"
     volume.display = "none"
     sobre.display = "none"
+    carregacuriosidades(
+      todascuriosidades[Math.floor(Math.random() * todascuriosidades.length)]
+    )
   } else if (div == 1) {
     inicio.display = "none"
     area.display = "flex"
@@ -76,6 +84,7 @@ function definediv(div) {
     massa.display = "none"
     moeda.display = "none"
     temperatura.display = "none"
+    tempo.display = "none"
     velocidade.display = "none"
     volume.display = "none"
     sobre.display = "none"
@@ -86,6 +95,7 @@ function definediv(div) {
     massa.display = "none"
     moeda.display = "none"
     temperatura.display = "none"
+    tempo.display = "none"
     velocidade.display = "none"
     volume.display = "none"
     sobre.display = "none"
@@ -96,6 +106,7 @@ function definediv(div) {
     massa.display = "flex"
     moeda.display = "none"
     temperatura.display = "none"
+    tempo.display = "none"
     velocidade.display = "none"
     volume.display = "none"
     sobre.display = "none"
@@ -106,9 +117,11 @@ function definediv(div) {
     massa.display = "none"
     moeda.display = "flex"
     temperatura.display = "none"
+    tempo.display = "none"
     velocidade.display = "none"
     volume.display = "none"
     sobre.display = "none"
+    carregacuriosidades(curiosidadesmoedas)
   } else if (div == 5) {
     inicio.display = "none"
     area.display = "none"
@@ -116,6 +129,7 @@ function definediv(div) {
     massa.display = "none"
     moeda.display = "none"
     temperatura.display = "flex"
+    tempo.display = "none"
     velocidade.display = "none"
     volume.display = "none"
     sobre.display = "none"
@@ -126,9 +140,11 @@ function definediv(div) {
     massa.display = "none"
     moeda.display = "none"
     temperatura.display = "none"
-    velocidade.display = "flex"
+    tempo.display = "flex"
+    velocidade.display = "none"
     volume.display = "none"
     sobre.display = "none"
+    carregacuriosidades(curiosidadestempo)
   } else if (div == 7) {
     inicio.display = "none"
     area.display = "none"
@@ -136,6 +152,18 @@ function definediv(div) {
     massa.display = "none"
     moeda.display = "none"
     temperatura.display = "none"
+    tempo.display = "none"
+    velocidade.display = "flex"
+    volume.display = "none"
+    sobre.display = "none"
+  } else if (div == 8) {
+    inicio.display = "none"
+    area.display = "none"
+    comprimento.display = "none"
+    massa.display = "none"
+    moeda.display = "none"
+    temperatura.display = "none"
+    tempo.display = "none"
     velocidade.display = "none"
     volume.display = "flex"
     sobre.display = "none"
@@ -146,6 +174,7 @@ function definediv(div) {
     massa.display = "none"
     moeda.display = "none"
     temperatura.display = "none"
+    tempo.display = "none"
     velocidade.display = "none"
     volume.display = "none"
     sobre.display = "flex"
@@ -169,9 +198,12 @@ function trocaunidade(grandeza) {
     var uiID = "uitemperatura"
     var ufID = "uftemperatura"
   } else if (grandeza == 6) {
+    var uiID = "uitempo"
+    var ufID = "uftempo"
+  } else if (grandeza == 7) {
     var uiID = "uivelocidade"
     var ufID = "ufvelocidade"
-  } else if (grandeza == 7) {
+  } else if (grandeza == 8) {
     var uiID = "uivolume"
     var ufID = "ufvolume"
   }
@@ -191,8 +223,10 @@ function trocaunidade(grandeza) {
     } else if (grandeza == 5) {
       calculatemperatura()
     } else if (grandeza == 6) {
-      calculavelocidade()
+      calculatempo()
     } else if (grandeza == 7) {
+      calculavelocidade()
+    } else if (grandeza == 8) {
       calculavolume()
     }
   }
@@ -367,6 +401,37 @@ function calculamassa() {
   }
 }
 
+async function principaismoedas(
+  cotacaobitcoin,
+  cotacaoethereum,
+  cotacaodolar,
+  cotacaoeuro
+) {
+  var urlbitcoin = "https://api.coincap.io/v2/assets/bitcoin"
+  var respostabitcoin = await fetch(urlbitcoin)
+  var dadosbitcoin = await respostabitcoin.json()
+  var taxabitcoin = dadosbitcoin.data.priceUsd
+  var urlethereum = "https://api.coincap.io/v2/assets/ethereum"
+  var respostaethereum = await fetch(urlethereum)
+  var dadosethereum = await respostaethereum.json()
+  var taxaethereum = dadosethereum.data.priceUsd
+  var urldolar = "https://api.exchangerate-api.com/v4/latest/USD"
+  var respostadolar = await fetch(urldolar)
+  var dadosdolar = await respostadolar.json()
+  var dolarbrl = dadosdolar.rates.BRL
+  var urleuro = "https://api.exchangerate-api.com/v4/latest/EUR"
+  var respostaeuro = await fetch(urleuro)
+  var dadoseuro = await respostaeuro.json()
+  var eurobrl = dadoseuro.rates.BRL
+  bitcoinbrl = taxabitcoin * dolarbrl
+  ethereumbrl = taxaethereum * dolarbrl
+  var formato = { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+  cotacaobitcoin.innerHTML = bitcoinbrl.toLocaleString("pt-BR", formato)
+  cotacaoethereum.innerHTML = ethereumbrl.toLocaleString("pt-BR", formato)
+  cotacaodolar.innerHTML = dolarbrl.toLocaleString("pt-BR", formato)
+  cotacaoeuro.innerHTML = eurobrl.toLocaleString("pt-BR", formato)
+}
+
 // Valor padrão para criptomoedas: Dólar americano (US$)
 async function convertemoeda(uimoeda, ufmoeda, vimoeda, vfmoeda) {
   var urldolar = "https://api.exchangerate-api.com/v4/latest/USD"
@@ -470,7 +535,12 @@ function calculamoeda() {
   var uimoeda = document.getElementById("uimoeda").value
   var ufmoeda = document.getElementById("ufmoeda").value
   var vfmoeda = document.getElementById("vfmoeda")
+  var cotacaobitcoin = document.getElementById("cotacaobitcoin")
+  var cotacaoethereum = document.getElementById("cotacaoethereum")
+  var cotacaodolar = document.getElementById("cotacaodolar")
+  var cotacaoeuro = document.getElementById("cotacaoeuro")
   convertemoeda(uimoeda, ufmoeda, vimoeda, vfmoeda)
+  principaismoedas(cotacaobitcoin, cotacaoethereum, cotacaodolar, cotacaoeuro)
 }
 
 // Valor padrão: Celsius (°C)
@@ -505,6 +575,72 @@ function calculatemperatura() {
     vftemperatura.innerHTML = resultado.toLocaleString("pt-BR", formato)
   } else {
     vftemperatura.innerHTML = "0"
+  }
+}
+
+function calculatempo() {
+  var vitempo = document.getElementById("vitempo").value
+  var uitempo = document.getElementById("uitempo").value
+  var uftempo = document.getElementById("uftempo").value
+  var vftempo = document.getElementById("vftempo")
+  if (vitempo != "") {
+    vitempo = parseFloat(vitempo)
+    if (uitempo != "m") {
+      if (uitempo == "A") {
+        // 385 dias
+        var resultado = vitempo * 525600
+      } else if (uitempo == "M") {
+        // 30 dias
+        var resultado = vitempo * 43200
+      } else if (uitempo == "S") {
+        var resultado = vitempo * 10080
+      } else if (uitempo == "D") {
+        var resultado = vitempo * 1440
+      } else if (uitempo == "h") {
+        var resultado = vitempo * 60
+      } else if (uitempo == "s") {
+        var resultado = vitempo / 60
+      } else if (uitempo == "ms") {
+        var resultado = vitempo / 60000
+      } else if (uitempo == "µs") {
+        var resultado = vitempo / 60000000
+      } else if (uitempo == "ns") {
+        var resultado = vitempo / 60000000000
+      }
+    } else {
+      var resultado = vitempo
+    }
+    if (uftempo != "m") {
+      if (uftempo == "A") {
+        // 385 dias
+        resultado /= 525600
+      } else if (uftempo == "M") {
+        // 30 dias
+        resultado /= 43200
+      } else if (uftempo == "S") {
+        resultado /= 10080
+      } else if (uftempo == "D") {
+        resultado /= 1440
+      } else if (uftempo == "h") {
+        resultado /= 60
+      } else if (uftempo == "s") {
+        resultado *= 60
+      } else if (uftempo == "ms") {
+        resultado *= 60000
+      } else if (uftempo == "µs") {
+        resultado *= 60000000
+      } else if (uftempo == "ns") {
+        resultado *= 60000000000
+      }
+    }
+    if (resultado < 1) {
+      var formato = { maximumFractionDigits: 10 }
+    } else {
+      var formato = { maximumFractionDigits: 2 }
+    }
+    vftempo.innerHTML = resultado.toLocaleString("pt-BR", formato)
+  } else {
+    vftempo.innerHTML = "0"
   }
 }
 
@@ -642,3 +778,22 @@ function ajustamenu(tela) {
     document.getElementById("menuextendido").style.display = "flex"
   }
 }
+
+function carregacuriosidades(curiosidades) {
+  var div = document.getElementById("curiosidades")
+  div.innerHTML = curiosidades[Math.floor(Math.random() * curiosidades.length)]
+}
+
+var curiosidadesmoedas = [
+  "O Bitcoin surgiu em 2008 como uma resposta à crise financeira.Em 5 de outubro de 2009, o desenvolvedor definiu que ₿ 1,00 custava US$ 0,00764, o que equivalia a R$ 0,01349.",
+  "O Ethereum foi idealizado pelo programador russo-canadense Vitalik Buterin em 2013, que já se aventurava anteriormente com o Bitcoin.",
+  "O dólar estadunidense é uma das moedas valiosas do mundo, mas a origem do seu nome vem de uma moeda denominada “joachimsthaler” ou “thaler”, que era utilizada em uma cidade da atual República Checa, Jáchymov.",
+  "O iene é uma das poucas moedas no mundo atual que ainda apresenta um furo no meio, exclusivamente nas moedas de 5 e 50 ienes.",
+  "A moeda de 5 ienes, chamada no Japão de goen, é considerada uma moeda da sorte. Isso acontece pois a palavra significa destino, oportunidade, conexão e relacionamento.",
+]
+var curiosidadestempo = [
+  "O tempo é considerado a quarta dimensão do continuum de espaço-tempo do universo, segundo a Teoria da Relatividade de Albert Einstein.",
+  "A percepção do tempo é individual, ou seja, cada pessoa tem seu próprio ritmo de tempo. Portanto, o tempo é relativo.",
+  `O tempo é inversamente proporcional à <span onclick="definediv(7)">velocidade</span>. Por isso, quanto maior a <span onclick="definediv(7)">velocidade</span>, menor é o tempo decorrido.`,
+]
+var todascuriosidades = [curiosidadesmoedas, curiosidadestempo]

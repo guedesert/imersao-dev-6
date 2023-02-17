@@ -29,6 +29,7 @@ header {
   width: 100%;
   display: flex;
   flex-direction: column;
+  text-align: center;
   padding: 0px 48px 48px 48px;
 }
 
@@ -80,6 +81,7 @@ nav {
 #velocidade,
 #volume,
 #temperatura,
+#tempo,
 #sobre {
   display: flex;
   flex-direction: column;
@@ -123,12 +125,48 @@ form label {
   margin: 10px;
   cursor: pointer;
 }
-
-#datadeatualizacao {
-  margin-top: 10px;
+#principaiscotacoes {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
   width: 100%;
+  justify-content: center;
+}
+.cotacao {
+  margin: 0px 5px;
+  display: flex;
+  flex-direction: row;
+  width: 180px;
+  border: solid 2px;
+  border-radius: 50px;
+}
+
+.moeda {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: right;
+}
+
+.moeda img {
+  margin-right: 8px;
+  width: 36px;
+  height: 36px;
+}
+
+.moeda span {
+  width: 115px;
   text-align: center;
+  margin-right: 8px;
+}
+
+#curiosidades {
+  padding: 0px 48px;
   font-size: small;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20%;
 }
 
 footer {
@@ -222,11 +260,45 @@ a:hover {
     width: 85%;
     font-size: small;
   }
+  #principaiscotacoes {
+    margin-top: 25px;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .cotacao {
+    margin: unset;
+    margin-bottom: 8px;
+    width: 125px;
+    border: solid 2px;
+    border-radius: 48px;
+  }
+
+  .moeda {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: right;
+  }
+  .moeda img {
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+  }
+  .moeda span {
+    font-size: small;
+    width: 80px;
+    text-align: center;
+    margin-right: 4px;
+  }
+  #curiosidades {
+    font-size: x-small;
+  }
 
   footer {
     padding-left: 15px;
     padding-right: 15px;
-    font-size: xx-small;
+    font-size: x-small;
   }
 
   footer span {
