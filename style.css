@@ -11,15 +11,18 @@ body {
   color: #ffffff;
   height: 100vh;
   display: flex;
-  justify-content: space-evenly;
+  align-items: center;
+  justify-content: center;
 }
 
 #conteiner {
+  padding: 0px 48px;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .apps {
@@ -61,13 +64,18 @@ a:hover {
 }
 
 @media (max-width: 815px) {
-  /* #conteiner {
-    flex-direction: column;
-  } */
+  #conteiner {
+    padding: 0px 15px;
+  }
+  .apps {
+    margin: 15px;
+  }
   .apps img {
-    width: 64px;
+    width: 130px;
   }
   footer {
+    padding-left: 15px;
+    padding-right: 15px;
     font-size: xx-small;
   }
   footer span {
