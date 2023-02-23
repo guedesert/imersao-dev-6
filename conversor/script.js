@@ -77,6 +77,11 @@ function definediv(div) {
     carregacuriosidades(
       todascuriosidades[Math.floor(Math.random() * todascuriosidades.length)]
     )
+    if (tela.matches) {
+      document.getElementById("menuextendido").style.display = "none"
+      document.getElementById("conteiner").style.display = "flex"
+    }
+    document.getElementById("curiosidades").hidden = false
     return
   } else if (div == 1) {
     inicio.display = "none"
@@ -785,9 +790,11 @@ function exibemenu() {
   if (div == "none") {
     document.getElementById("menuextendido").style.display = "flex"
     document.getElementById("curiosidades").hidden = true
+    document.getElementById("conteiner").style.display = "none"
   } else if (tela.matches) {
     document.getElementById("menuextendido").style.display = "none"
     document.getElementById("curiosidades").hidden = false
+    document.getElementById("conteiner").style.display = "flex"
   }
 }
 
@@ -796,6 +803,8 @@ function ajustamenu(tela) {
     document.getElementById("menuextendido").style.display = "none"
   } else {
     document.getElementById("menuextendido").style.display = "flex"
+    document.getElementById("conteiner").style.display = "flex"
+    document.getElementById("curiosidades").hidden = false
   }
 }
 
