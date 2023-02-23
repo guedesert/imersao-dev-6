@@ -10,9 +10,15 @@ body {
   font-size: large;
   color: #ffffff;
   height: 100vh;
+}
+header {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 48px;
+}
+header img {
+  height: 50px;
 }
 
 #conteiner {
@@ -34,9 +40,21 @@ body {
   border: #ffffff solid 4px;
   border-radius: 100%;
 }
-.apps img:hover {
-  border: #a1a1aa solid 4px;
-  border-radius: 100%;
+
+.apps #conversor:hover {
+  border: #d9b700 solid 4px;
+}
+
+.apps #mentalista:hover {
+  border: #e700fb solid 4px;
+}
+
+.apps #aluraflix:hover {
+  border: #ce0000 solid 4px;
+}
+
+.apps #tabela-de-pontos:hover {
+  border: #009b10 solid 4px;
 }
 
 footer {
@@ -80,5 +98,10 @@ a:hover {
   }
   footer span {
     display: none;
+  }
+}
+@media (min-height: 560px) {
+  #conteiner {
+    padding-top: 12%;
   }
 }

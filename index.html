@@ -6,27 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>6ª Imersão Dev</title>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./assets/favicon.svg" />
   </head>
   <body>
+    <header><img src="./assets/logo-imersao-dev.png" alt="" /></header>
     <div id="conteiner">
       <div class="apps">
         <a href="./conversor/index.html">
-          <img src="./conversor/assets/favicon.svg" alt="Conversor" />
+          <img
+            onmouseover="mudaimagem(1)"
+            onmouseout="mudaimagem(0)"
+            id="conversor"
+            src="./conversor/assets/favicon.svg"
+            alt="Conversor"
+          />
         </a>
       </div>
       <div class="apps">
         <a href="./mentalista/index.html">
-          <img src="./mentalista/assets/favicon.svg" alt="Mentalista" />
+          <img
+            onmouseover="mudaimagem(2)"
+            onmouseout="mudaimagem(0)"
+            id="mentalista"
+            src="./mentalista/assets/favicon.svg"
+            alt="Mentalista"
+          />
         </a>
       </div>
       <div class="apps">
         <a href="./aluraflix/index.html">
-          <img src="./aluraflix/assets/favicon.svg" alt="Aluraflix" />
+          <img
+            onmouseover="mudaimagem(3)"
+            onmouseout="mudaimagem(0)"
+            id="aluraflix"
+            src="./aluraflix/assets/favicon.svg"
+            alt="Aluraflix"
+          />
         </a>
       </div>
       <div class="apps">
         <a href="./tabela-de-pontos/index.html">
           <img
+            onmouseover="mudaimagem(4)"
+            onmouseout="mudaimagem(0)"
+            id="tabela-de-pontos"
             src="./tabela-de-pontos/assets/favicon.svg"
             alt="Tabela de pontos"
           />
@@ -48,5 +71,6 @@
           alt="Logo da Imersão Dev da Alura"
       /></a>
     </footer>
+    <script src="./script.js"></script>
   </body>
 </html>
