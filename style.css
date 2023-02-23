@@ -6,10 +6,36 @@
 
 body {
   background-color: #09090a;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: large;
   color: #ffffff;
   height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
 }
+
+#conteiner {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.apps {
+  margin: 0px 15px;
+  border-radius: 100%;
+}
+
+.apps img {
+  border: #ffffff solid 4px;
+  border-radius: 100%;
+}
+.apps img:hover {
+  border: #a1a1aa solid 4px;
+  border-radius: 100%;
+}
+
 footer {
   width: 100%;
   display: flex;
@@ -35,6 +61,12 @@ a:hover {
 }
 
 @media (max-width: 815px) {
+  /* #conteiner {
+    flex-direction: column;
+  } */
+  .apps img {
+    width: 64px;
+  }
   footer {
     font-size: xx-small;
   }
