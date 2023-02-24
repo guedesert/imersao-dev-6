@@ -92,6 +92,10 @@ nav {
   flex-direction: column;
 }
 
+div#sobre {
+  text-align: justify;
+}
+
 h4 {
   text-align: center;
   padding: 15px 0px;
@@ -166,6 +170,7 @@ form label {
 }
 
 #curiosidades {
+  background-color: #09090a;
   padding: 0px 48px;
   font-size: small;
   position: fixed;

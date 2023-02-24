@@ -99,6 +99,9 @@ a:hover {
   footer span {
     display: none;
   }
+  footer img {
+    width: 75px;
+  }
 }
 @media (min-height: 560px) {
   #conteiner {
