@@ -22,7 +22,7 @@ Projeto criado durante a 6ª edição da [Imersão Dev](https://imersao.dev/) da
 
 Durante o evento, foi proposta a elaboração de 4 aplicações diferentes:
 
-### [x] 💱 Conversor [↗](https://guedesert.github.io/imersao-dev-6/conversor/index.html)
+### 💱 Conversor [↗](https://guedesert.github.io/imersao-dev-6/conversor/index.html)
 
 Criar um conversor de moedas, onde você conseguirá transformar em real um valor em dólar.
 
@@ -33,7 +33,13 @@ Criar um conversor de moedas, onde você conseguirá transformar em real um valo
 - Conversor de temperaturas entre fahrenheit, kelvin e celsius;
 - Adicionar uma linha ao projeto desenvolvido para que apareça o valor em bitcoin.
 
-### [ ] 🔮 Mentalista [↗](https://guedesert.github.io/imersao-dev-6/mentalista/index.html)
+<div align="center">
+
+![Badge "concluído"](https://img.shields.io/badge/-Concluído-green?style=for-the-badge)
+
+</div>
+
+### 🔮 Mentalista [↗](https://guedesert.github.io/imersao-dev-6/mentalista/index.html) 
 
 Criar um jogo de adivinhação, onde o programa escolhe um número aleatório e nós vamos tentar acertar.
 
@@ -43,7 +49,13 @@ Criar um jogo de adivinhação, onde o programa escolhe um número aleatório e 
 - Quando a pessoa errar, deixe na mensagem se o número chutado é maior ou menor que o número secreto;
 - Pesquisar e aprender a diferença entre == e ===.
 
-### [ ] 🎞 Aluraflix  [↗](https://guedesert.github.io/imersao-dev-6/aluraflix/index.html)
+<div align="center">
+
+![Badge "em desenvolvimento"](https://img.shields.io/badge/-em%20desenvolvimento-yellow?style=for-the-badge)
+
+</div>
+
+### 🎞 Aluraflix  [↗](https://guedesert.github.io/imersao-dev-6/aluraflix/index.html)
 
 Criar uma lista com o filme preferido de cada pessoa e exibir os pôsteres de cada filmes na tela do navegador.
 
@@ -57,7 +69,13 @@ Criar uma lista com o filme preferido de cada pessoa e exibir os pôsteres de ca
 - Além de colocar a imagem do filme, também adicionar o nome por meio de outro input;
 - Guardar todos os filmes adicionados em uma lista/array e percorrer essa lista toda vez que quiser imprimir ou remover o filme.
 
-### [ ] 💯 Tabela de pontos [↗](https://guedesert.github.io/imersao-dev-6/tabela-de-pontos/index.html)
+<div align="center">
+
+![Badge "em desenvolvimento"](https://img.shields.io/badge/-em%20desenvolvimento-yellow?style=for-the-badge)
+
+</div>
+
+### 💯 Tabela de pontos [↗](https://guedesert.github.io/imersao-dev-6/tabela-de-pontos/index.html)
 
 Criar uma tabela de classificação.
 
@@ -69,6 +87,12 @@ Criar uma tabela de classificação.
 - Criar um botão para zerar todos os pontos;
 - Criar um botão e inputs (campos de texto) para adicionar novos jogadores, com seus respectivos dados;
 - Utilizar seu jogo preferido para se basear na pontuação da sua tabela de classificação.
+
+<div align="center">
+
+![Badge "em desenvolvimento"](https://img.shields.io/badge/-em%20desenvolvimento-yellow?style=for-the-badge)
+
+</div>
 
 ## 📥 Como baixar e executar
 
